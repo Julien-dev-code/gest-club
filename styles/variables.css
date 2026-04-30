@@ -20,12 +20,16 @@
     --text-secondary: #6B6560;
     --color-section-title: #92400E;
     --text-placeholder: #ADA8A2;
-    --badge-warning-bg: rgba(220, 38, 38, 0.08);
     --badge-success-bg: rgba(22, 163, 74, 0.08);
     --badge-error-bg: rgba(220, 38, 38, 0.08);
-    --badge-warning-color: #92400E;
     --badge-error-color: #BD2222;
     --badge-success-color: #10755C;
+    --btn-success-border: rgba(16, 117, 92, 0.5);
+    --btn-disabled-bg: rgba(107, 101, 96, 0.07);
+    --btn-disabled-border: rgba(107, 101, 96, 0.50);
+    --btn-danger-border: rgba(189, 34, 34, 0.50);
+   
+
     
 
     /* ============================================================
