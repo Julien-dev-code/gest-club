@@ -71,6 +71,7 @@
 /* ============================================================
    BADGES
    ============================================================ */
+   
    .bxs-circle {
     font-size: 10px;
     margin-right: 5px;
@@ -131,3 +132,31 @@
     border-radius:var(--radius-xs);
     padding: 4px 10px;
  }
+
+ /* ============================================================
+   FORMULAIRE
+   ============================================================ */
+
+
+.form__label {
+    display: block;
+    margin-bottom: 5px;
+    font-family:var(--font-body);
+    font-weight: 700;
+    font-size: 13px;
+
+}
+
+.form__input {
+    background-color:var(--bg-cards);
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-radius:var(--radius-sm);
+    font-family:var(--font-body);
+    
+}
+
+.form__input::placeholder {
+    color: var(--text-placeholder);
+}
