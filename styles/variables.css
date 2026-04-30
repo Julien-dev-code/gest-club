@@ -1,0 +1,42 @@
+:root {
+    
+     /* ============================================================
+       Variables typography
+       ============================================================ */
+
+    --font-title: 'Outfit', sans-serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+
+
+    /* ============================================================
+       Variables colors
+       ============================================================ */
+    
+    --bg-primary: #F2F0ED;
+    --text-elevated: #ffffff;
+    --accent: #D97016;
+    --bg-cards: #FAFAF8;
+    --text-primary: #1A1714;
+    --text-secondary: #6B6560;
+    --color-section-title: #92400E;
+    --text-placeholder: #ADA8A2;
+    --badge-warning-bg: rgba(220, 38, 38, 0.08);
+    --badge-success-bg: rgba(22, 163, 74, 0.08);
+    --badge-error-bg: rgba(220, 38, 38, 0.08);
+    --badge-warning-color: #92400E;
+    --badge-error-color: #BD2222;
+    --badge-success-color: #10755C;
+    
+
+    /* ============================================================
+       Variables radius
+       ============================================================ */
+    
+    --radius-sm: 10px;
+    --radius-md: 16px;
+    --radius-lg: 20px;
+    
+
+
+    }
+
