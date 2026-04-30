@@ -58,7 +58,7 @@
 }
 
 .btn--danger {
-    background-color: var(--badge-warning-bg);
+    background-color: var(--badge-error-bg);
     color:var(--badge-error-color);
     font-family:var(--font-title);
     font-weight: 500;
@@ -67,3 +67,67 @@
     border-radius: var(--radius-sm);
     padding: 5px 12px;
 }
+
+/* ============================================================
+   BADGES
+   ============================================================ */
+   .bxs-circle {
+    font-size: 10px;
+    margin-right: 5px;
+ }
+ 
+ 
+   .badge--active {
+    background-color: var(--badge-success-bg);
+    color:var(--badge-success-color);
+    font-family:var(--font-body);
+    font-weight: 600;
+    font-size: 11px;
+    border: 1px solid var(--btn-success-border);
+    border-radius: var(--radius-lg);
+    padding: 4px 12px;
+ }
+
+ .badge--upcoming {
+    background-color: var(--badge-upcoming-bg);
+    color:var(--color-section-title);
+    font-family:var(--font-body);
+    font-weight: 600;
+    font-size: 11px;
+    border: 1px solid var(--badge-upcoming-border);
+    border-radius: var(--radius-lg);
+    padding: 4px 12px;
+ }
+
+ .badge--finished {
+    background-color: var(--badge-finished-bg);
+    color:var(--text-placeholder);
+    font-family:var(--font-body);
+    font-weight: 600;
+    font-size: 11px;
+    border: 1px solid var(--badge-finished-border);
+    border-radius: var(--radius-lg);
+    padding: 4px 12px;
+ }
+
+ .badge--full {
+    background-color: var(--badge-error-bg);
+    color:var(--badge-error-color);
+    font-family:var(--font-body);
+    font-weight: 600;
+    font-size: 11px;
+    border: 1px solid var(--btn-danger-border);
+    border-radius: var(--radius-lg);
+    padding: 4px 12px;
+ }
+
+ .badge--seat {
+    background-color: var(--badge-upcoming-bg);
+    color:var(--color-section-title);
+    font-family:var(--font-body);
+    font-weight: 600;
+    font-size: 11px;
+    border: 1px solid var(--badge-upcoming-border);
+    border-radius:var(--radius-xs);
+    padding: 4px 10px;
+ }

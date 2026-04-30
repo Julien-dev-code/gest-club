@@ -28,19 +28,18 @@
     --btn-disabled-bg: rgba(107, 101, 96, 0.07);
     --btn-disabled-border: rgba(107, 101, 96, 0.50);
     --btn-danger-border: rgba(189, 34, 34, 0.50);
-   
+    --badge-upcoming-bg: rgba(217, 112, 22, 0.14);
+    --badge-upcoming-border: rgba(146, 64, 14, 0.50);
+    --badge-finished-bg: rgba(173, 168, 162, 0.20);
+    --badge-finished-border: rgba(173, 168, 162, 0.20);
 
-    
-
-    /* ============================================================
+   /* ============================================================
        Variables radius
        ============================================================ */
-    
+    --radius-xs: 6px;
     --radius-sm: 10px;
     --radius-md: 16px;
     --radius-lg: 20px;
-    
 
-
-    }
+}
 
