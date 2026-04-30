@@ -72,10 +72,13 @@
    BADGES
    ============================================================ */
    
-   .bxs-circle {
+   .bxs-circle,
+   .bxs-check-circle {
     font-size: 10px;
     margin-right: 5px;
  }
+
+
  
  
    .badge--active {
@@ -133,6 +136,17 @@
     padding: 4px 10px;
  }
 
+ .badge--success {
+    background-color: var(--badge-success-bg);
+    color:var(--badge-success-color);
+    font-family:var(--font-body);
+    font-weight: 600;
+    font-size: 11px;
+    border: 1px solid var(--btn-success-border);
+    border-radius: var(--radius-lg);
+    padding: 4px 12px;
+ }
+
  /* ============================================================
    FORMULAIRE
    ============================================================ */
@@ -159,4 +173,30 @@
 
 .form__input::placeholder {
     color: var(--text-placeholder);
+    font-family:var(--font-body);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+.footer__brand {
+    color: var(--text-primary);
+    font-family:var(--font-title);
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.footer__brand span {
+    color:var(--accent);
+    
+}
+
+.footer__copy {
+    color: var(--text-primary);
+    font-family:var(--font-title);
+    font-size: 16px;
+    font-weight: 600;
 }
