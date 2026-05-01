@@ -72,16 +72,13 @@
    BADGES
    ============================================================ */
    
-   .bxs-circle,
-   .bxs-check-circle {
+.bxs-circle,
+.bxs-check-circle {
     font-size: 10px;
     margin-right: 5px;
  }
 
-
- 
- 
-   .badge--active {
+.badge--active {
     background-color: var(--badge-success-bg);
     color:var(--badge-success-color);
     font-family:var(--font-body);
@@ -176,6 +173,69 @@
     font-family:var(--font-body);
     font-size: 13px;
     font-weight: 600;
+}
+
+/* ============================================================
+   CARDS
+   ============================================================ */
+
+.card {
+    width: 384px;
+    height: auto;
+    border: 1px solid #E8842A;
+    border-radius:var(--radius-md);
+    padding: 30px 50px;
+}
+
+.card__stats {
+    display: flex; 
+    gap: 80px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.card__stat {
+    text-align: center;
+}
+
+.card__title {
+    font-family:var(--font-title);
+    color: var(--text-primary);
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 0;
+}
+
+.card__date {
+    font-family: var(--font-body);
+    color: var(--text-secondary);
+    font-size: 13px;
+    font-weight: 300;
+    margin-top: 5px;
+}
+
+.card__stat-label {
+    font-family: var(--font-body);
+    color: var(--text-secondary);
+    font-size: 11px;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+
+.card__stat-value {
+    font-family: var(--font-body);
+    color: var(--accent);
+    font-size: 15px;
+    font-weight: 800;
+    margin-top: 0;
+}
+
+.card .btn--primary {
+    width: 100%;
+}
+
+.card__stat-value--dark {
+    color: var(--text-primary);
 }
 
 /* ============================================================
