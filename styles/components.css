@@ -1,3 +1,7 @@
+body {
+    background-color: var(--bg-primary);
+}
+
 /* ============================================================
    BUTTONS
    ============================================================ */
@@ -11,6 +15,13 @@
     border: none;
     border-radius: var(--radius-sm);
     padding: 10px 60px;
+    transition: all 0.2s ease;
+}
+
+.btn--primary:hover {
+    background-color:var(--accent-hover);
+    box-shadow: 0 4px 12px rgba(217, 112, 22, 0.35);
+
 }
 
 .btn--dark {
@@ -22,6 +33,13 @@
     border: none;
     border-radius: var(--radius-sm);
     padding: 10px 60px;
+    transition: all 0.2s ease;
+}
+
+.btn--dark:hover {
+    background-color:var(--btn-dark-hover);
+    box-shadow: 0 4px 12px rgba(26, 23, 20, 0.35);
+
 }
 
 .btn--success {
@@ -33,6 +51,12 @@
     border: 1px solid var(--btn-success-border);
     border-radius: var(--radius-sm);
     padding: 10px 60px;
+    transition: all 0.2s ease;
+}
+
+.btn--success:hover {
+    background-color: rgba(16, 117, 92, 0.15);
+    box-shadow: 0 4px 12px rgba(16, 117, 92, 0.25);
 }
 
 .btn--ghost {
@@ -44,6 +68,12 @@
     border: 1px solid var(--text-secondary);
     border-radius: var(--radius-sm);
     padding: 10px 40px;
+    transition: all 0.2s ease;
+}
+
+.btn--ghost:hover {
+    background-color: rgba(107, 101, 96, 0.06);
+    box-shadow: 0 4px 12px rgba(107, 101, 96, 0.15);
 }
 
 .btn--disabled {
@@ -55,6 +85,7 @@
     border: 1px solid var(--btn-disabled-border);
     border-radius: var(--radius-sm);
     padding: 10px 80px;
+    cursor: not-allowed;
 }
 
 .btn--danger {
@@ -66,6 +97,12 @@
     border: 1px solid var(--btn-danger-border);
     border-radius: var(--radius-sm);
     padding: 5px 12px;
+    transition: all 0.2s ease;
+}
+
+.btn--danger:hover {
+    background-color: rgba(220, 38, 38, 0.15);
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.25);
 }
 
 /* ============================================================
@@ -180,11 +217,19 @@
    ============================================================ */
 
 .card {
+    background-color: var(--bg-cards);
     width: 384px;
     height: auto;
-    border: 1px solid #E8842A;
     border-radius:var(--radius-md);
     padding: 30px 50px;
+    border: 1px solid var(--border);
+    transition: all 0.2s ease;
+}
+
+.card:hover {
+    border-color: rgba(217, 112, 22, 0.35);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.07), 0 2px 6px rgba(0, 0, 0, 0.04);
+
 }
 
 .card__stats {
