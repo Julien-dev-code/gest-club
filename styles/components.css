@@ -179,10 +179,10 @@ body {
     color:var(--badge-error-color);
     font-family:var(--font-title);
     font-weight: 500;
-    font-size: 16px;
+    font-size: 20px;
     border: 1px solid var(--btn-danger-border);
     border-radius: var(--radius-sm);
-    padding: 5px 12px;
+    padding: 7px 20px;
     transition: all 0.2s ease;
 }
 
@@ -307,7 +307,7 @@ body {
     width: 384px;
     height: auto;
     border-radius:var(--radius-md);
-    padding: 30px 50px;
+    padding: 20px 50px;
     border: 1px solid var(--border);
     transition: all 0.2s ease;
 }
@@ -367,6 +367,22 @@ body {
 
 .card__stat-value--dark {
     color: var(--text-primary);
+}
+
+.card__actions {
+    display: flex;
+    gap: 60px;
+}
+
+.card__stats--reservation {
+    display: flex; 
+    gap: 50px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.btn--full {
+    padding: 10px 80px;
 }
 
 /* ============================================================
