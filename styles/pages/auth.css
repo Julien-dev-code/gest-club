@@ -9,12 +9,17 @@
     position: relative;
     width: 100%;
 }
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.40); 
+}
 .hero__image {
     width: 100%;
     height: auto;
     display: block;
     object-fit: cover;
-    opacity: 0.9;
 }
 .hero__title {
     position: absolute;
@@ -23,7 +28,10 @@
     color: white;
     font-family: var(--font-title);
     font-size: 32px;
-
+    z-index: 1;
+}
+.hero__subtitle {
+    display: none;
 }
 .hero__title--accent {
     color: var(--accent);
@@ -90,4 +98,67 @@
     margin-top: 20px;
     margin-bottom: 20px;
     padding: 20px;
+}
+
+@media (min-width: 991px) {
+        main {
+            display: flex;
+            flex-direction: row;
+            min-height: calc(100vh - 50px);
+            }
+        .hero {
+            flex: 0 0 45%;
+            position: relative;
+            overflow: hidden;
+            width: auto;                    
+            height: calc(100vh - 50px);
+        }
+        .hero__image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+          }
+
+          .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.40);
+        }
+          .hero__title {
+            top: auto;
+            position: absolute;
+            bottom: 300px;
+            left: 48px;
+            z-index: 1;
+            font-size: 72px;
+          }
+          .hero__subtitle {
+            display: block;
+            position: absolute;
+            bottom: 200px;
+            left: 48px;
+            z-index: 1;
+            color: white;
+            font-size: 14px;
+            max-width: 300px;
+            line-height: 1.6;
+            opacity: 0.80;
+            font-weight: 800;
+        }
+        
+          .form__group {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 48px 64px;
+            max-width: 560px;
+            margin: 0 auto;
+            color: var(--text-elevated);
+            font-family: var(--font-body);
+          }
+    
 }
