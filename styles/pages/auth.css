@@ -5,35 +5,7 @@
 .form-group {
     margin-top: 20px;
 }
-.form__header h2 {
-    font-family: var(--font-body);
-    font-size: 12px;
-    font-weight: 600;
-    color:var(--color-section-title);
-    margin-top: 30px;
-    text-transform: uppercase;
-}
-.form__header h3 {
-    font-family: var(--font-title);
-    font-size: 26px;
-    font-weight: 800;
-    color:var(--text-primary);
-}
-.form__header p {
-    font-family: var(--font-body);
-    font-size: 13px;
-    font-weight: 500;
-    color:var(--text-secondary);
-    margin-top: 5px;
-}
-.form__header a {
-    font-family: var(--font-body);
-    font-size: 13px;
-    font-weight: 600;
-    color:var(--color-section-title);
-    margin-top: 5px;
-    margin-left: 5px;
-}
+
 .form__footer {
     display: flex;
     flex-direction: column;
