@@ -9,10 +9,11 @@ body {
 .navbar {
     display: flex;
     justify-content: space-between;
-    height: 50px;
     align-items: center;
     margin-left: 20px;
     margin-right: 20px;
+    background-color:var(--text-elevated);
+    height: 60px;
 }
 .navbar__right {
     display: flex;
@@ -41,14 +42,6 @@ body {
 .navbar__links a:hover {
     color:var(--accent);
 }
-
-.navbar__links  ul {
-    text-decoration: none;
-    list-style: none;
-    color:var(--text-secondary);
-    
-}
-
 .navbar__brand {
     color: var(--text-primary);
     font-family:var(--font-title);
@@ -86,6 +79,45 @@ body {
     background-color: var(--badge-upcoming-bg);
     margin-left: 0;
 
+}
+
+/* ============================================================
+   HERO MOBILE
+   ============================================================ */
+
+.navbar .btn--ghost {
+    padding: 8px 16px;
+}
+.hero {
+    position: relative;
+    width: 100%;
+}
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.40); 
+}
+.hero__image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+.hero__title {
+    position: absolute;
+    top: 100px;
+    left: 20px;
+    color: white;
+    font-family: var(--font-title);
+    font-size: 32px;
+    z-index: 1;
+}
+.hero__subtitle {
+    display: none;
+} 
+.hero__title--accent {
+    color: var(--accent);
 }
 
 /* ============================================================
@@ -304,7 +336,8 @@ body {
 
 .card {
     background-color: var(--bg-cards);
-    width: 384px;
+    width: auto;
+    max-width: 384px;
     height: auto;
     border-radius:var(--radius-md);
     padding: 20px 50px;
