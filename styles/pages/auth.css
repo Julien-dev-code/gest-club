@@ -1,0 +1,93 @@
+.navbar {
+    background-color:var(--text-elevated);
+    height: 60px;
+}
+.navbar .btn--ghost {
+    padding: 8px 16px;
+}
+.hero {
+    position: relative;
+    width: 100%;
+}
+.hero__image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    opacity: 0.9;
+}
+.hero__title {
+    position: absolute;
+    top: 100px;
+    left: 20px;
+    color: white;
+    font-family: var(--font-title);
+    font-size: 32px;
+
+}
+.hero__title--accent {
+    color: var(--accent);
+}
+.form__group {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.form-group {
+    margin-top: 20px;
+}
+.form__header h2 {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
+    color:var(--color-section-title);
+    margin-top: 30px;
+    text-transform: uppercase;
+}
+.form__header h3 {
+    font-family: var(--font-title);
+    font-size: 26px;
+    font-weight: 800;
+    color:var(--text-primary);
+}
+.form__header p {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 500;
+    color:var(--text-secondary);
+    margin-top: 5px;
+}
+.form__header a {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 600;
+    color:var(--color-section-title);
+    margin-top: 5px;
+    margin-left: 5px;
+}
+.form__footer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+.form__footer > a:first-child {
+    text-align: right;
+}
+.form__footer a {
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    color:var(--color-section-title);
+    margin-left: 10px;
+}
+.form__footer p {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 500;
+    color:var(--text-secondary);
+    
+}
+.form__footer button {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+}
