@@ -129,6 +129,10 @@
       display: flex;
       justify-content: space-around;
     }
+    .reservations {
+        display: flex;
+        justify-content: space-around;
+    }
     .features {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
