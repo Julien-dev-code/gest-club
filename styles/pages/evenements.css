@@ -1,0 +1,36 @@
+.card {
+    margin: 20px;
+    max-width: 100%;
+}
+.card__title {
+    margin-top: 20px;
+}
+
+.footer {
+    text-align: center;
+}
+
+@media (min-width: 991px) {
+    .main__container {
+        max-width: 1200px;
+        margin: 40px auto 0;
+        padding: 0 20px;
+    }
+    .events {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 24px;
+        row-gap: 32px;
+    }
+    .card {
+        max-width: 100%;
+    }
+    .events .card {
+        margin: 0;
+    }
+    .section__header {
+        margin-bottom: 30px;
+    }
+    
+   
+}
