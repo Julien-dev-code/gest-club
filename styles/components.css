@@ -286,6 +286,17 @@ body {
     background-color: rgba(220, 38, 38, 0.15);
     box-shadow: 0 4px 12px rgba(220, 38, 38, 0.25);
 }
+.btn--full {
+    background-color: var(--badge-error-bg);
+    color: var(--badge-error-color);
+    font-family: var(--font-title);
+    font-weight: 600;
+    font-size: 16px;
+    border: 1px solid var(--btn-danger-border);
+    border-radius: var(--radius-sm);
+    padding: 10px 80px;
+    cursor: not-allowed;
+}
 
 /* ============================================================
    BADGES
