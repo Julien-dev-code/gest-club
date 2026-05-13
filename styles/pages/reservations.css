@@ -113,3 +113,11 @@
     color: var(--text-secondary);
     font-weight: 500;
 }
+
+@media (min-width: 991px) {
+    main {
+        max-width: 700px;
+        margin: 0 auto;
+        padding: 40px 20px;
+    }
+}
