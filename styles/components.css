@@ -374,6 +374,33 @@ body {
     padding: 4px 12px;
  }
 
+
+ /* ============================================================
+   ALERTS
+   ============================================================ */
+
+.alert {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px 16px;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-title);
+    font-size: 13px;
+}
+
+.alert--info {
+    background-color: var(--badge-upcoming-bg);
+    color: var(--color-section-title);
+    border: 1px solid var(--badge-upcoming-border);
+}
+
+.alert i {
+    font-size: 16px;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
  /* ============================================================
    FORMULAIRE
    ============================================================ */

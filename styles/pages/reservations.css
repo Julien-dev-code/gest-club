@@ -1,0 +1,115 @@
+.alert {
+    margin: 20px 20px 0 20px;
+}
+.reservation__step {
+    margin: 20px 20px 0 20px;
+    background-color:var(--bg-cards);
+    border-radius: var(--radius-md);
+    padding: 20px 10px 20px 10px;
+}
+.reservation__step-title {
+    font-family: var(--font-title);
+    font-size: 13px;
+    font-weight: 700;
+    color:var(--text-primary);
+}
+.reservation__step-number {
+    font-family: var(--font-title);
+    font-size: 15px;
+    font-weight: 700;
+    color:var(--color-section-title);
+}
+.tribune-grid {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+.tribune-option {
+    background-color:var(--text-elevated);
+    border: 1px solid var(--text-secondary);
+    border-radius: var(--radius-sm);
+    padding: 10px 20px 10px 20px;
+}
+.tribune-option__name {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 700;
+    color:var(--text-primary);
+}
+.tribune-option__places {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 300;
+    color:var(--text-secondary);
+}
+.niveau-grid {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+.niveau-option {
+    background-color:var(--text-elevated);
+    border: 1px solid var(--text-secondary);
+    border-radius:var(--radius-md);
+    padding: 5px 15px 5px 15px;
+}
+.places-counter {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.places-counter__controls {
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+
+.places-counter__btn {
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--text-secondary);
+    background: var(--bg-elevated);
+    font-size: 18px;
+    font-family: var(--font-title);
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+}
+
+.places-counter__value {
+    width: 48px;
+    height: 36px;
+    border: 1px solid var(--border-strong);
+    border-left: none;
+    border-right: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-title);
+    font-weight: 600;
+}
+
+.places-counter__max {
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+.form__footer {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 20px 0 20px;
+}
+.form__footer button {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+.form__footer span {
+    text-align: center;
+    font-family: var(--font-body);
+    font-size: 11px;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
