@@ -1,0 +1,98 @@
+.confirmation__header {
+    text-align: center;
+    margin-top: 20px;
+}
+.confirmation__header-title {
+    font-family: var(--font-title);
+    color: var(--text-primary);
+    font-size: 24px;
+    font-weight: 800;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.confirmation__header-title--accent {
+    color: var(--accent);
+}
+.confirmation__header-subtitle {
+    font-family: var(--font-body);
+    color: var(--text-secondary);
+    font-size: 11px;
+    font-weight: 400;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.ticket {
+    background-color:var(--bg-cards);
+    width: auto;
+    height: auto;
+    border-radius:var(--radius-lg);
+    margin: 20px;
+    padding-top: 30px;
+}
+.ticket__qr img {
+    display: block;
+    margin: 0 auto;
+    border: 2px solid var(--accent);
+    border-radius: var(--radius-sm);
+}
+.ticket__qr-label,
+.ticket__qr-number {
+    font-family: var(--font-body);
+    color: var(--text-placeholder);
+    font-size: 11px;
+    font-weight: 400;
+    text-align: center;
+    margin-top: 10px;
+}
+.ticket__detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 10px 20px 10px;
+    padding: 15px;
+    background-color: var(--text-elevated);
+    border-radius:var(--radius-sm);
+    border: 1px solid var(--text-placeholder);
+}
+.ticket__detail-label {
+    font-family: var(--font-title);
+    color: var(--text-secondary);
+    font-size: 13px;
+    font-weight: 400;
+    text-align: center;
+}
+.ticket__detail-value {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+.ticket__detail-row-label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.ticket__detail-footer {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 20px 0 20px;
+}
+.ticket__detail-footer button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 12px;
+}
+.ticket__detail-footer a {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 12px;
+    text-align: center;
+}
+.ticket__detail-footer span {
+    text-align: center;
+    font-family: var(--font-body);
+    font-size: 11px;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
