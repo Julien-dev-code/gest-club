@@ -10,6 +10,7 @@
     text-align: center;
 }
 
+
 @media (min-width: 991px) {
     .main__container {
         max-width: 1200px;
