@@ -499,6 +499,15 @@ body {
 .card .btn--primary {
     width: 100%;
 }
+.card a.btn--primary {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+.card .btn--disabled,
+.card .btn--full {
+    width: 100%;
+}
 
 .card__stat-value--dark {
     color: var(--text-primary);
