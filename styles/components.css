@@ -15,9 +15,18 @@ body {
     justify-content: space-between;
     align-items: center;
     background-color: var(--text-elevated);
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
     min-height: 60px;
+}
+.navbar__user {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+.navbar__username {
+    white-space: nowrap;
 }
 
 .navbar__top {

@@ -12,17 +12,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script src="js/main.js"defer></script>
 </head>
 <body>
     <header>
-        <nav class="navbar">
-            <span class="navbar__brand ">GEST<span>CLUB</span></span>
-            <div class="navbar__right">
-              <ul class="navbar__links">
-                  <li><a href="#">Événements</a></li>
-              </ul>
-              <span class="navbar__username">Julien D.</span>
-              <span class="navbar__avatar">JD</span>
+        <nav class="navbar" id="nav">
+            <div class="navbar__top">
+                <span class="navbar__brand ">GEST<span>CLUB</span></span>
+                <button id="burger-button-display">
+                    <i class='bx  bx-menu'></i> 
+                    <i class='bx  bx-x'></i> 
+                </button>
+            </div>
+                <div class="navbar__right">
+                    <ul class="navbar__links">
+                        <li><a href="#">Événements</a></li>
+                    </ul>
+                <div class="navbar__user">
+                    <span class="navbar__avatar">JD</span>
+                    <span class="navbar__username">Julien D.</span>
+                </div>
             </div>
         </nav>
     </header>

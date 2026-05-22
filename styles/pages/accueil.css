@@ -21,6 +21,7 @@
     padding-bottom: 20px;
 }
 
+
 #nav-ul {
     flex-direction: column;
     gap: 16px;
@@ -277,5 +278,9 @@
     
 
 }
-
+@media (max-width: 990px) {
+    .navbar__user {
+        order: -1;
+    }
+}
 
