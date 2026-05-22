@@ -12,6 +12,13 @@
 
 
 @media (min-width: 991px) {
+    .navbar__right {
+        width: auto;
+        flex-direction: row;
+        align-items: center;
+        gap: 25px;
+        padding-bottom: 0;
+    }
     .main__container {
         max-width: 1200px;
         margin: 40px auto 0;
