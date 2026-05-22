@@ -12,15 +12,30 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script src="js/main.js"defer></script>
 </head>
 <body>
-    <header>
-        <div class="navbar">
-            <span class="navbar__brand">GEST<span>CLUB</span></span>
-            <button class="btn--ghost">Retour a l'accueil</button>
+  <header>
+    <nav class="navbar" id="nav">
+        <div class="navbar__top">
+        <span class="navbar__brand ">GEST<span>CLUB</span></span>  
+        <button id="burger-button-display">
+          <i class='bx  bx-menu'></i> 
+          <i class='bx  bx-x'></i> 
+        </button>
+      </div>
+        <div class="navbar__right">
+          
+            <ul class="navbar__links" id="nav-ul">
+                <li><a href="#">Fonctionnalités</a></li>
+                <li><a href="#">Événements</a></li>
+                <li><a href="connexion.html" class="navbar__cta btn--primary">Me connecter</a></li>
+            </ul>
         </div>
-    </header>
-    <main>
+    </nav>
+  </header>
+    
+  <main>
         
         <div class="hero">
           <img class="hero__image" src="assets/images/gabriele-fenili-7MF6_YwHJA8-unsplash.jpg" alt="">
