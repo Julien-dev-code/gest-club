@@ -117,6 +117,153 @@
 }
 
 
+.modal-wrapper {
+    z-index: 1000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0, .75);
+    position:fixed;
+    top:0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+}
+.modal-wrapper__content {
+    background-color:var(--bg-cards);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    width: 80%;
+    max-height: 80vh;
+    overflow-y: auto;
+    max-width: 600px;
+}
+
+.modal-wrapper.modal-show {
+    display: flex;
+}
+.modal-wrapper > div {
+    padding: 20px;
+    width: 80%;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 8px;
+}
+.confirmation__header {
+    text-align: center;
+    margin-top: 20px;
+}
+.confirmation__header-title {
+    font-family: var(--font-title);
+    color: var(--text-primary);
+    font-size: 24px;
+    font-weight: 800;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.confirmation__header-title--accent {
+    color: var(--accent);
+}
+.confirmation__header-subtitle {
+    font-family: var(--font-body);
+    color: var(--text-secondary);
+    font-size: 11px;
+    font-weight: 400;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.ticket {
+    background-color:var(--bg-cards);
+    width: auto;
+    height: auto;
+    border-radius:var(--radius-lg);
+    margin: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.ticket__qr img {
+    display: block;
+    margin: 0 auto;
+    border: 2px solid var(--accent);
+    border-radius: var(--radius-sm);
+}
+.ticket__qr-label,
+.ticket__qr-number {
+    font-family: var(--font-body);
+    color: var(--text-placeholder);
+    font-size: 11px;
+    font-weight: 400;
+    text-align: center;
+    margin-top: 10px;
+}
+.ticket__detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 10px 20px 10px;
+    padding: 15px;
+    background-color: var(--text-elevated);
+    border-radius:var(--radius-sm);
+    border: 1px solid var(--text-placeholder);
+}
+.ticket__detail-label {
+    font-family: var(--font-title);
+    color: var(--text-secondary);
+    font-size: 13px;
+    font-weight: 400;
+    text-align: center;
+}
+.ticket__detail-value {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+.ticket__detail-row-label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.ticket__detail-footer {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 20px 0 20px;
+}
+.ticket__detail-footer button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 12px;
+}
+.ticket__detail-footer a {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 12px;
+    text-align: center;
+}
+.ticket__detail-footer span {
+    text-align: center;
+    font-family: var(--font-body);
+    font-size: 11px;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+.modal-button-close {
+    width: 36px;
+    height: 36px;
+    background: none;
+    padding: 5px;
+    color: var(--color-section-title);
+    border: 1px solid var(--text-placeholder);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+}
+.bx-x {
+    padding: 5px;
+    color: var(--color-section-title);
+    border: 1px solid var(--text-placeholder);
+    border-radius: var(--radius-sm);
+}
+
 @media (min-width: 991px) {
     #burger-button-display { display: none; }
 

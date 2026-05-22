@@ -13,6 +13,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <script src="js/main.js"defer></script>
+    <script src="js/modals.js"defer></script>
 </head>
 <body>
     <header>
@@ -86,7 +87,7 @@
             
             
                     <div class="card__actions">
-                        <button class="btn--success btn--full ">Voir mon billet</button>
+                        <button class="btn--success btn--full">Voir mon billet</button>
                         <button class="btn--danger">
                             <i class='bx  bx-trash'></i> 
                         </button>
@@ -267,5 +268,75 @@
         <span class="footer__brand">GEST<span>CLUB</span></span>
         <p class="footer__copy">GestClub 2026 - Tout droit réservés</p>
     </footer>
+
+    <div id="modal-test" class="modal-wrapper">
+        <div class="modal-wrapper__content">
+            <button class="modal-button-close">
+                <i class='bx  bx-x'></i>
+            </button>
+            <div class="confirmation__header" tabindex="-1">
+                <span class="badge--success">
+                    <i class="bx bxs-check-circle"></i>Réservation validée
+                </span>
+                <h1 class="confirmation__header-title">Votre billet est<br><span class="confirmation__header-title--accent">prêt!</span></h1>
+                <p class="confirmation__header-subtitle">
+                    Présentez ce QR code à l'entrée du stade le jour de l'événement         
+                </p>
+            </div>
+
+            <div class="ticket">
+                <div class="ticket__qr">
+                    <img src="assets/images/qrcode.png" alt="QR Code de réservation">
+                    <p class="ticket__qr-number">N° RES-2025-00847</p>
+                    <p class="ticket__qr-label">DÉTAILS DE LA RÉSERVATION</p>
+                </div>
+
+                <div class="ticket__details">
+                    <div class="ticket__detail-row">
+                        <div class="ticket__detail-row-label">
+                            <iconify-icon icon="noto-v1:stadium"></iconify-icon>
+                            <p class="ticket__detail-label">Événement</p>
+                        </div>
+                        <p class="ticket__detail-value">FC Metz - PSG</p>
+                    </div>
+                
+
+                
+                    <div class="ticket__detail-row">
+                        <div class="ticket__detail-row-label">
+                            <iconify-icon icon="flat-color-icons:calendar"></iconify-icon>
+                            <p class="ticket__detail-label">Date</p>
+                        </div>
+                        <p class="ticket__detail-value">Sam. 14 juin 2025 · 20h45</p>
+                    </div>
+                
+
+                    <div class="ticket__detail-row">
+                        <div class="ticket__detail-row-label">
+                            <iconify-icon icon="fluent-color:location-ripple-24"></iconify-icon>
+                            <p class="ticket__detail-label">Tribune - Niveau</p>
+                        </div>
+                        <p class="ticket__detail-value">Tribune Nord · Niveau 2</p>
+                    </div>
+            
+
+            
+                    <div class="ticket__detail-row">
+                        <div class="ticket__detail-row-label">
+                            <iconify-icon icon="noto-v1:seat"></iconify-icon>
+                            <p class="ticket__detail-label">Places réservées</p>
+                        </div>
+                        <span class="badge--seat">N°12-N°13</span>
+                    </div>
+
+                </div>
+                <div class="ticket__detail-footer">
+                    <button class="btn--primary">Télécharger mon billet</button>
+                    <a href="evenements.html" class="btn--ghost">Retour aux événements</a>
+                    <span>Ce QR code est unique et personnel. Il sera scanné une seule fois à l'entrée par l'agent d'accueil.</span>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
