@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script src="js/modals.js"defer></script>
 </head>
 <body>
     <header>
@@ -101,10 +102,48 @@
                 </div>
             </div>
             <div class="form__footer">
-                <button type="submit" class="btn--primary">Confirmer la réservation</button>
+                <button type="button" class="btn--primary btn--confirm">Confirmer la réservation</button>
                 <span>Un QR code vous sera généré après confirmation</span>
             </div>
         </form>  
     </main>
+
+    <div id="modal-confirm" class="modal-wrapper">
+        <div class="modal-wrapper__content">
+            <button class="modal-button-close">
+                <i class='bx  bx-x'></i>
+            </button>
+            
+            <div class="section__header">
+                <p class="section__eyebrow">CONFIRMATION</p>
+                <h2 class="section__title">Finale du championnat</h2>
+                <p class="section__subtitle">Samedi 15 mars 2026 à 20H00</p>
+            </div>
+            <div class="ticket__details">
+                <p class="ticket__detail-label">Tribune</p>
+                <p class="ticket__detail-value ticket__detail-value--accent">Nord</p>
+            </div>
+            <div class="ticket__details">
+                <p class="ticket__detail-label">Niveaux</p>
+                <p class="ticket__detail-value  ticket__detail-value--accent">Haut</p>
+            </div>
+            <div class="ticket__details">
+                <p class="ticket__detail-label">Nombre de places</p>
+                <p class="ticket__detail-value  ticket__detail-value--primary">1 place</p>
+            </div>
+            <div class="ticket__details">
+                <p class="ticket__detail-label">Numéro de siege</p>
+                <p class="ticket__detail-value  ticket__detail-value--muted">Attribution automatique</p>
+            </div>
+            <div class="ticket__details">
+                <p class="ticket__detail-label">Réservé par </p>
+                <p class="ticket__detail-value  ticket__detail-value--primary">Julien D.</p>
+            </div>
+            <div class="ticket__detail-footer">
+                <button type="submit" class="btn--primary">Confirmer la réservation</button>
+                <span>Un QR code vous sera généré après confirmation</span>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

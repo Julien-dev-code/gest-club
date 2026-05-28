@@ -5,13 +5,19 @@
 document.querySelectorAll(".btn--success").forEach((button) => {
 
     button.addEventListener("click", () => {
-        document.getElementById("modal-test").classList.add("modal-show");
+        document.getElementById("modal-qr").classList.add("modal-show");
 
         document.querySelector(".modal-show > div").focus();
     });
 });
 
-// ============================================================
+document.querySelectorAll(".btn--confirm").forEach((button) => {
+    button.addEventListener("click", () => {
+        document.getElementById("modal-confirm").classList.add("modal-show");
+        document.querySelector(".modal-show > div").focus();
+    });
+});
+
 // 2. FERMETURE DES MODALS (bouton ✕)
 // ============================================================
 

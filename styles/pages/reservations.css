@@ -113,6 +113,99 @@
     color: var(--text-secondary);
     font-weight: 500;
 }
+.modal-wrapper__content .section__eyebrow {
+    margin-top: 0;
+}
+.modal-wrapper__content .section__header {
+    margin-left: 0;
+}
+.modal-wrapper {
+    display: none;
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0, .75);
+    position:fixed;
+    top:0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+}
+.modal-wrapper__content {
+    position: relative;
+    background-color:var(--bg-cards);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    max-width: 600px;
+}
+.modal-wrapper.modal-show {
+    display: flex;
+}
+.modal-button-close {
+    position: absolute;
+    right: 10px;
+    top: 22px;
+    border: none;
+    background-color:var(--bg-cards)
+}
+.modal-button-close i {
+    font-size: 40px;
+    border: none;
+}
+.section__header {
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+
+.ticket__details {
+    display: flex;
+    justify-content: space-between;
+}
+.ticket__detail-label {
+    font-family: var(--font-body);
+    color: var(--text-secondary);
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+.ticket__detail-value {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 600;
+}
+.ticket__detail-value--accent {
+    color: var(--accent);
+    
+}
+.ticket__detail-value--primary {
+    color: var(--text-primary);
+    
+}
+.ticket__detail-value--muted {
+    color: var(--text-placeholder);
+    font-style: italic;
+}
+.ticket__detail-footer {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 20px 0 20px;
+}
+.ticket__detail-footer button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 12px;
+}
+.ticket__detail-footer span {
+    text-align: center;
+    font-family: var(--font-body);
+    font-size: 11px;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
 
 @media (min-width: 991px) {
     main {
