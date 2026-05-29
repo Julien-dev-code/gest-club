@@ -130,6 +130,7 @@
     width: 100%;
 }
 .modal-wrapper__content {
+    position: relative;
     background-color:var(--bg-cards);
     border-radius: var(--radius-lg);
     padding: 20px;
@@ -148,6 +149,17 @@
     max-height: 90vh;
     overflow-y: auto;
     border-radius: 8px;
+}
+.modal-button-close {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    border: none;
+    background-color:var(--bg-cards)
+}
+.modal-button-close i {
+    font-size: 40px;
+    border: none;
 }
 .confirmation__header {
     text-align: center;
@@ -253,7 +265,6 @@
     background: none;
     padding: 5px;
     color: var(--color-section-title);
-    border: 1px solid var(--text-placeholder);
     border-radius: var(--radius-sm);
     cursor: pointer;
 }
