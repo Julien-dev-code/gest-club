@@ -13,6 +13,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <script src="js/modals.js"defer></script>
+    <script src="js/pages/reservation.js"defer></script>
 </head>
 <body>
     <header>
@@ -44,7 +45,7 @@
                     Choisissez votre tribune
                 </h2>
                 <div class="tribune-grid">
-                    <button type="button" class="tribune-option">
+                    <button type="button" class="tribune-option tribune-option--selected">
                         <div>
                             <iconify-icon icon="noto-v1:stadium"></iconify-icon>
                             <span class="tribune-option__name">Nord</span>
@@ -81,7 +82,7 @@
                     Choisissez votre niveau
                 </h2>
                 <div class="niveau-grid">
-                    <button type="button" class="niveau-option niveau-option--active">Haut</button>
+                    <button type="button" class="niveau-option niveau-option--selected">Haut</button>
                     <button type="button" class="niveau-option">Milieu</button>
                     <button type="button" class="niveau-option">Bas</button>
                 </div>
@@ -94,9 +95,9 @@
                 </h2>
                 <div class="places-counter">
                     <div class="places-counter__controls">
-                        <button type="button" class="places-counter__btn">-</button>
+                        <button type="button" class="places-counter__btn--minus">-</button>
                         <span class="places-counter__value">1</span>
-                        <button type="button" class="places-counter__btn">+</button>
+                        <button type="button" class="places-counter__btn--plus">+</button>
                     </div>
                     <p class="places-counter__max">maximum : <strong>2 places</strong></p>
                 </div>

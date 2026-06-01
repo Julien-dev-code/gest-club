@@ -43,6 +43,13 @@
     font-weight: 300;
     color:var(--text-secondary);
 }
+
+.tribune-option--selected .tribune-option__name {
+    color: var(--color-section-title);
+}
+.tribune-option--selected .tribune-option__places {
+    color: var(--color-section-title);
+}
 .niveau-grid {
     display: flex;
     gap: 12px;
@@ -53,6 +60,12 @@
     border: 1px solid var(--text-secondary);
     border-radius:var(--radius-md);
     padding: 5px 15px 5px 15px;
+}
+.tribune-option--selected,
+.niveau-option--selected {
+    background-color:var(--badge-upcoming-bg);
+    border: 1px solid var(--color-section-title);
+    color: var(--color-section-title)
 }
 .places-counter {
     display: flex;
@@ -67,7 +80,8 @@
     gap: 0;
 }
 
-.places-counter__btn {
+.places-counter__btn--minus,
+.places-counter__btn--plus {
     width: 36px;
     height: 36px;
     border: 1px solid var(--text-secondary);
