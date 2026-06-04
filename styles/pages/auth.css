@@ -62,7 +62,12 @@
 .form__footer p {
     margin-left: 60px;
 }
-
+.error-message {
+    color: var(--badge-error-color);
+}
+.form-group.error input {
+    border-color: var(--badge-error-color);
+}
 @media (min-width: 991px) {
         main {
             display: flex;
