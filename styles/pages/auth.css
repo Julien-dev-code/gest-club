@@ -68,6 +68,21 @@
 .form-group.error input {
     border-color: var(--badge-error-color);
 }
+
+ul {
+    margin-top: 8px;
+}
+#inscription-form .form-group li.success {
+    color:var(--badge-success-color);
+}
+#inscription-form .form-group.error li.error {
+    color: red;
+}
+li {
+    font-family: var(--font-body);
+}
+
+
 @media (min-width: 991px) {
         main {
             display: flex;
