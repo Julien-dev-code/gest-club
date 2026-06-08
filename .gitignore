@@ -1,4 +1,4 @@
 .DS_Store
-*.DS_Store
 .env
-test.html
+test.php
+/config/database.php
