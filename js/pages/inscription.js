@@ -2,12 +2,12 @@ const inscription_form = document.getElementById("inscription-form")
 
 inscription_form.setAttribute("novalidate", true);
 
-const fname = document.getElementById("firstname");
-const lname = document.getElementById("lastname");
-const numphone = document.getElementById("phone");
+const fname = document.getElementById("prenom");
+const lname = document.getElementById("nom");
+const numphone = document.getElementById("telephone");
 const email = document.getElementById("email");
-const pwd = document.getElementById("pwd");
-const pwdConfirm = document.getElementById("pwdConfirm");
+const pwd = document.getElementById("mot_de_passe");
+const pwdConfirm = document.getElementById("mot_de_passe_confirmation");
 const checkbox = document.getElementById("check")
 
 const regExPhone = /^0[67](\s?\d{2}){4}$/;

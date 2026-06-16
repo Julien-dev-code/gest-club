@@ -17,7 +17,7 @@
     <header>
         <div class="navbar">
             <span class="navbar__brand">GEST<span>CLUB</span></span>
-            <a href="index.html" class="btn--ghost">Retour a l'accueil</a>
+            <a href="index.php" class="btn--ghost">Retour a l'accueil</a>
         </div>
     </header>
     <main>
@@ -30,27 +30,27 @@
             <div class="form__header">
                 <p class="form__eyebrow">Inscription</p>
                 <h2 class="form__title">Créer mon compte</h2>
-                <p class="form__subtitle">Déjà inscrit ? <a href="connexion.html">Se connecter</a></p>
+                <p class="form__subtitle">Déjà inscrit ? <a href="connexion.php">Se connecter</a></p>
             </div>
-            <form action="" method="POST" id="inscription-form">
+            <form action="traitements/traitement_inscription.php" method="POST" id="inscription-form">
                 <div class="form__row">
 
                     <div class="form-group">
-                        <label class="form__label" for="firstname">Prénom</label>
-                        <input class="form__input" type="text" id="firstname" name="firstname" required placeholder="Julien">
+                        <label class="form__label" for="prenom">Prénom</label>
+                        <input class="form__input" type="text" id="prenom" name="prenom" required placeholder="Julien">
                     </div>
                     
                     <div class="form-group">
-                        <label class="form__label" for="lastname">Nom</label>
-                        <input class="form__input" type="text" id="lastname" name="lastname" required placeholder="Dupont">
+                        <label class="form__label" for="nom">Nom</label>
+                        <input class="form__input" type="text" id="nom" name="nom" required placeholder="Dupont">
                     </div>
 
                     
                 </div>
 
                 <div class="form-group">
-                    <label class="form__label" for="phone">Téléphone</label>
-                    <input class="form__input" type="tel" id="phone" name="phone" required placeholder="06 12 34 56 78">
+                    <label class="form__label" for="telephone">Téléphone</label>
+                    <input class="form__input" type="tel" id="telephone" name="telephone" required placeholder="06 12 34 56 78">
                 </div>
 
                 <div class="form-group">
@@ -59,13 +59,13 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form__label" for="pwd">Mot de passe</label>
-                    <input class="form__input" type="password" id="pwd" name="pwd" required placeholder="••••••••">
+                    <label class="form__label" for="mot_de_passe">Mot de passe</label>
+                    <input class="form__input" type="password" id="mot_de_passe" name="mot_de_passe" required placeholder="••••••••">
                 </div>
 
                 <div class="form-group">
-                    <label class="form__label" for="pwdConfirm">Confirmer le mot de passe</label>
-                    <input class="form__input" type="password" id="pwdConfirm" name="pwdConfirm" required placeholder="••••••••">
+                    <label class="form__label" for="mot_de_passe_confirmation">Confirmer le mot de passe</label>
+                    <input class="form__input" type="password" id="mot_de_passe_confirmation" name="mot_de_passe_confirmation" required placeholder="••••••••">
                 </div>
 
                 <div class="form-group">
@@ -77,7 +77,7 @@
 
                 <div class="form__footer">
                     <button class="btn--primary" type="submit">Créer mon compte</button>
-                    <p>Déjà inscrit ? <a href="connexion.html">Se connecter</a></p>
+                    <p>Déjà inscrit ? <a href="connexion.php">Se connecter</a></p>
                 </div>
 
             </form>
