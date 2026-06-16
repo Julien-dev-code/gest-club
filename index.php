@@ -28,8 +28,8 @@
           
             <ul class="navbar__links" id="nav-ul">
                 <li><a href="#">Fonctionnalités</a></li>
-                <li><a href="#">Événements</a></li>
-                <li><a href="connexion.html" class="navbar__cta btn--primary">Me connecter</a></li>
+                <li><a href="evenements.php">Événements</a></li>
+                <li><a href="connexion.php" class="navbar__cta btn--primary">Me connecter</a></li>
             </ul>
         </div>
     </nav>
@@ -43,7 +43,7 @@
             <div class="hero__content">
               <h1 class="hero__title">L'arène<br><span class="hero__title--accent">vous attend.</span></h1>
               <p class="hero__subtitle">Réservez vos places, retrouvez vos amis dans les tribunes et vivez chaque match comme jamais...</p>
-              <a href="evenements.html" class="btn--primary">Voir les événements</a>
+              <a href="evenements.php" class="btn--primary">Voir les événements</a>
             </div>
         </div>
 
@@ -79,7 +79,7 @@
                       </div>
                     </div>
             
-                  <a href="reservation.html" class="btn--primary">Réserver ma place</a>
+                  <a href="reservation.php" class="btn--primary">Réserver ma place</a>
             </div> 
 
             <div class="card">
@@ -106,7 +106,7 @@
                       </div>
                     </div>
             
-              <a href="reservation.html" class="btn--primary">Réserver ma place</a>
+              <a href="reservation.php" class="btn--primary">Réserver ma place</a>
             </div> 
 
             <div class="card">
@@ -133,7 +133,7 @@
                       </div>
                     </div>
             
-              <a href="reservation.html" class="btn--primary">Réserver ma place</a>
+              <a href="reservation.php" class="btn--primary">Réserver ma place</a>
             </div> 
           </div>
 
@@ -214,7 +214,7 @@
                 <p class="cta__description">Créez votre compte gratuitement et réservez votre première place en moins de 2 minutes.</p>
               </div>
               <div class="cta__btn">
-                <a href="connexion.html" class="btn--dark">Créer mon compte</a>
+                <a href="connexion.php" class="btn--dark">Créer mon compte</a>
               </div>
             </div>
           </section>

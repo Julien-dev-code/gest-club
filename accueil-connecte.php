@@ -27,7 +27,7 @@
             </div>
                 <div class="navbar__right">
                     <ul class="navbar__links">
-                        <li><a href="#">Événements</a></li>
+                        <li><a href="evenements.php">Événements</a></li>
                     </ul>
                 <div class="navbar__user">
                     <span class="navbar__username">Julien D.</span>
@@ -332,7 +332,7 @@
                 </div>
                 <div class="ticket__detail-footer">
                     <button class="btn--primary">Télécharger mon billet</button>
-                    <a href="evenements.html" class="btn--ghost">Retour aux événements</a>
+                    <a href="evenements.php" class="btn--ghost">Retour aux événements</a>
                     <span>Ce QR code est unique et personnel. Il sera scanné une seule fois à l'entrée par l'agent d'accueil.</span>
                 </div>
             </div>

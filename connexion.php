@@ -17,7 +17,7 @@
     <header>
         <div class="navbar">
             <span class="navbar__brand">GEST<span>CLUB</span></span>
-            <a href="index.html" class="btn--ghost">Retour a l'accueil</a>
+            <a href="index.php" class="btn--ghost">Retour a l'accueil</a>
         </div>
     </header>
     <main>
@@ -30,7 +30,7 @@
             <div class="form__header">
                 <p class="form__eyebrow">Connexion</p>
                 <h2 class="form__title">Bon retour</h2>
-                <p class="form__subtitle">Pas encore de compte ? <a href="inscription.html">Créer un compte</a></p>
+                <p class="form__subtitle">Pas encore de compte ? <a href="inscription.php">Créer un compte</a></p>
             </div>
             <form action="" method="POST" id="connexion-form">
                 <div class="form-group">
@@ -44,7 +44,7 @@
                 <div class="form__footer">
                     <a href="#">Mot de passe oublié ?</a>
                     <button class="btn--primary" type="submit" >Se Connecter</button>
-                    <p>Pas encore de inscrit? <a href="inscription.html">Créer mon compte gratuitement</a></p>
+                    <p>Pas encore de inscrit? <a href="inscription.php">Créer mon compte gratuitement</a></p>
                 </div>
             </form>
         </div>

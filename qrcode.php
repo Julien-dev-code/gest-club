@@ -17,7 +17,7 @@
     <header>
         <div class="navbar">
             <span class="navbar__brand">GEST<span>CLUB</span></span>
-            <a href="evenements.html" class="btn--ghost">Retour au événements</a>
+            <a href="evenements.php" class="btn--ghost">Retour au événements</a>
         </div>
     </header>
     <main>
@@ -79,7 +79,7 @@
             </div>
             <div class="ticket__detail-footer">
                 <button class="btn--primary">Télécharger mon billet</button>
-                <a href="evenements.html" class="btn--ghost">Retour aux événements</a>
+                <a href="evenements.php" class="btn--ghost">Retour aux événements</a>
                 <span>Ce QR code est unique et personnel. Il sera scanné une seule fois à l'entrée par l'agent d'accueil.</span>
             </div>
         </div>

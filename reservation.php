@@ -19,7 +19,7 @@
     <header>
         <div class="navbar">
             <span class="navbar__brand">GEST<span>CLUB</span></span>
-            <a href="evenements.html" class="btn--ghost">Retour au événements</a>
+            <a href="evenements.php" class="btn--ghost">Retour au événements</a>
         </div>
     </header>
     <main>

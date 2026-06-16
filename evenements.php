@@ -26,7 +26,7 @@
             </div>
             <div class="navbar__right">
                 <ul class="navbar__links">
-                    <li><a href="#">Événements</a></li>
+                    <li><a href="evenements.php">Événements</a></li>
                 </ul>
                 <div class="navbar__user">
                     <span class="navbar__username">Julien D.</span>
@@ -68,7 +68,7 @@
                         </div>
                         </div>
                 
-                    <a href="reservation.html" class="btn--primary">Réserver ma place</a>
+                    <a href="reservation.php" class="btn--primary">Réserver ma place</a>
                 </div> 
 
                 <div class="card">
@@ -95,7 +95,7 @@
                         </div>
                         </div>
                 
-                    <a href="reservation.html" class="btn--primary">Réserver ma place</a>
+                    <a href="reservation.php" class="btn--primary">Réserver ma place</a>
                 </div> 
 
                 <div class="card">
@@ -150,7 +150,7 @@
                         </div>
                         </div>
                 
-                    <a href="reservation.html" class="btn--primary">Réserver ma place</a>
+                    <a href="reservation.php" class="btn--primary">Réserver ma place</a>
                 </div> 
 
                 <div class="card">
@@ -204,7 +204,7 @@
                         </div>
                         </div>
                 
-                    <a href="reservation.html" class="btn--primary">Réserver ma place</a>
+                    <a href="reservation.php" class="btn--primary">Réserver ma place</a>
                 </div> 
 
                 <div class="card">
@@ -231,7 +231,7 @@
                         </div>
                         </div>
                 
-                    <a href="reservation.html" class="btn--primary">Réserver ma place</a>
+                    <a href="reservation.php" class="btn--primary">Réserver ma place</a>
                 </div> 
 
                 <div class="card">
@@ -258,7 +258,7 @@
                         </div>
                         </div>
                 
-                    <a href="reservation.html" class="btn--primary">Réserver ma place</a>
+                    <a href="reservation.php" class="btn--primary">Réserver ma place</a>
                 </div> 
 
                 <div class="card">
