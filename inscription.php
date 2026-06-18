@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+$erreurs = $_SESSION['erreurs'] ?? [];
+$anciennes_valeurs = $_SESSION['anciennes_valeurs'] ?? [];
+
+unset($_SESSION['erreurs'], $_SESSION['anciennes_valeurs']);
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -32,7 +41,7 @@
                 <h2 class="form__title">Créer mon compte</h2>
                 <p class="form__subtitle">Déjà inscrit ? <a href="connexion.php">Se connecter</a></p>
             </div>
-            <form action="traitements/traitement_inscription.php" method="POST" id="inscription-form">
+            <form action="traitements/traitement_inscription.php" method="POST" id="inscription-form" novalidate>
                 <div class="form__row">
 
                     <div class="form-group">
