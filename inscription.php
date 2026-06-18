@@ -41,17 +41,28 @@ unset($_SESSION['erreurs'], $_SESSION['anciennes_valeurs']);
                 <h2 class="form__title">Créer mon compte</h2>
                 <p class="form__subtitle">Déjà inscrit ? <a href="connexion.php">Se connecter</a></p>
             </div>
+
+            <?php if (!empty($erreurs)) : ?>
+                <div class="form__errors">
+                    <ul>
+                        <?php foreach ($erreurs as $erreur) : ?>
+                            <li><?= htmlspecialchars($erreur) ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+            <?php endif; ?>
+
             <form action="traitements/traitement_inscription.php" method="POST" id="inscription-form" novalidate>
                 <div class="form__row">
 
                     <div class="form-group">
                         <label class="form__label" for="prenom">Prénom</label>
-                        <input class="form__input" type="text" id="prenom" name="prenom" required placeholder="Julien">
+                        <input class="form__input" type="text" id="prenom" name="prenom" value="<?= htmlspecialchars($anciennes_valeurs['prenom'] ?? '')?>" required placeholder="Julien">
                     </div>
                     
                     <div class="form-group">
                         <label class="form__label" for="nom">Nom</label>
-                        <input class="form__input" type="text" id="nom" name="nom" required placeholder="Dupont">
+                        <input class="form__input" type="text" id="nom" name="nom" value="<?= htmlspecialchars($anciennes_valeurs['nom'] ?? '')?>" required placeholder="Dupont">
                     </div>
 
                     
@@ -59,12 +70,12 @@ unset($_SESSION['erreurs'], $_SESSION['anciennes_valeurs']);
 
                 <div class="form-group">
                     <label class="form__label" for="telephone">Téléphone</label>
-                    <input class="form__input" type="tel" id="telephone" name="telephone" required placeholder="06 12 34 56 78">
+                    <input class="form__input" type="tel" id="telephone" name="telephone" value="<?= htmlspecialchars($anciennes_valeurs['telephone'] ?? '')?>" required placeholder="06 12 34 56 78">
                 </div>
 
                 <div class="form-group">
                     <label class="form__label" for="email">Adresse email</label>
-                    <input class="form__input" type="email" id="email" name="email" required placeholder="Exemple@email.com">
+                    <input class="form__input" type="email" id="email" name="email" value="<?= htmlspecialchars($anciennes_valeurs['email'] ?? '')?>" required placeholder="Exemple@email.com">
                 </div>
 
                 <div class="form-group">
