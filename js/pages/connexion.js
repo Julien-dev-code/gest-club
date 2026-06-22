@@ -3,7 +3,7 @@ const connexion_form = document.getElementById("connexion-form")
 connexion_form.setAttribute("novalidate", true);
 
 const email = document.getElementById("email");
-const pwd = document.getElementById("pwd");
+const pwd = document.getElementById("mot_de_passe");
 
 
 connexion_form.addEventListener("submit", (event) => {

@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -32,15 +36,28 @@
                 <h2 class="form__title">Bon retour</h2>
                 <p class="form__subtitle">Pas encore de compte ? <a href="inscription.php">Créer un compte</a></p>
             </div>
-            <form action="" method="POST" id="connexion-form">
+            <form action="traitements/traitement_connexion.php" method="POST" id="connexion-form" novalidate>
+
+            <?php if (isset($_SESSION['erreur_connexion'])) : ?>
+                <p class="form__error"><?= htmlspecialchars($_SESSION['erreur_connexion']) ?></p>
+                <?php unset($_SESSION['erreur_connexion']); ?>
+            <?php endif; ?>
+
+            
+
                 <div class="form-group">
-                    <label class="form__label" for="mail">Adresse email</label>
-                    <input class="form__input" type="email" id="email" name="email" required placeholder="Exemple@email.com" >
+                    <label class="form__label" for="email">Adresse email</label>
+                    <input class="form__input" type="email" id="email" name="email" value="<?= htmlspecialchars($_SESSION['anciennes_valeurs']['email'] ?? '')?>" placeholder="Exemple@email.com" >
                 </div>
+
                 <div class="form-group">
-                    <label class="form__label" for="pwd">Mot de passe</label>
-                    <input class="form__input" type="password" id="pwd" name="pwd" required placeholder="••••••••">
+                    <label class="form__label" for="mot_de_passe">Mot de passe</label>
+                    <input class="form__input" type="password" id="mot_de_passe" name="mot_de_passe"  placeholder="••••••••">
                 </div>
+
+
+                <?php unset($_SESSION['anciennes_valeurs']); ?>
+
                 <div class="form__footer">
                     <a href="#">Mot de passe oublié ?</a>
                     <button class="btn--primary" type="submit" >Se Connecter</button>
