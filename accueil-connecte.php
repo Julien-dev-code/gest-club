@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header('Location: connexion.php');
+    exit;
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -41,7 +52,7 @@
             <img class="hero__image" src="assets/images/gabriele-fenili-7MF6_YwHJA8-unsplash.jpg" alt="">
               
             <div class="hero__content">
-                <h1 class="hero__title">Bonjour Julien,<br><span class="hero__title--accent">Bienvenue dans l'arène.</span></h1>
+                <h1 class="hero__title">Bonjour <span class="hero__title--prenom"><?= htmlspecialchars($_SESSION['prenom']) ?></span>,<br><span class="hero__title--accent">Bienvenue dans l'arène.</span></h1>
                 <p class="hero__subtitle">Réservez vos places, retrouvez vos amis dans les tribunes et vivez chaque match comme jamais...</p>
                 <a href="evenements.html" class="btn--primary">Voir les événements</a>
             </div>

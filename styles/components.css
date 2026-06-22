@@ -143,6 +143,9 @@ header {
     font-size: 32px;
     z-index: 1;
 }
+.hero__title--prenom {
+    text-transform: capitalize;
+}
 .hero__subtitle {
     display: none;
 } 
