@@ -61,6 +61,16 @@ header {
 .navbar__links a:hover {
     color: var(--accent);
 }
+.navbar__logout-btn {
+    border: none;
+    background-color: transparent;
+    color: var(--badge-error-color);
+    font-size: 20px;
+    font-weight: bold;
+    font-family: var(--font-body);
+    white-space: nowrap;
+    cursor: pointer;
+}
 
 .navbar__brand {
     color: var(--text-primary);

@@ -40,6 +40,10 @@ if (!isset($_SESSION['user_id'])) {
                     <ul class="navbar__links">
                         <li><a href="evenements.php">Événements</a></li>
                     </ul>
+
+                <form class="navbar__logout" action="traitements/traitement_deconnexion.php" method="POST">
+                    <button class="navbar__logout-btn" type="submit">Se déconnecter</button>
+                </form>
                 <div class="navbar__user">
                     <span class="navbar__username">Julien D.</span>
                     <span class="navbar__avatar">JD</span>
@@ -54,7 +58,7 @@ if (!isset($_SESSION['user_id'])) {
             <div class="hero__content">
                 <h1 class="hero__title">Bonjour <span class="hero__title--prenom"><?= htmlspecialchars($_SESSION['prenom']) ?></span>,<br><span class="hero__title--accent">Bienvenue dans l'arène.</span></h1>
                 <p class="hero__subtitle">Réservez vos places, retrouvez vos amis dans les tribunes et vivez chaque match comme jamais...</p>
-                <a href="evenements.html" class="btn--primary">Voir les événements</a>
+                <a href="evenements.php" class="btn--primary">Voir les événements</a>
             </div>
         </div>
 
@@ -215,7 +219,7 @@ if (!isset($_SESSION['user_id'])) {
                           </div>
                         </div>
                 
-                    <a href="reservation.html" class="btn--primary">Réserver ma place</a>
+                    <a href="reservation.php" class="btn--primary">Réserver ma place</a>
                 </div> 
     
                 <div class="card">
@@ -242,7 +246,7 @@ if (!isset($_SESSION['user_id'])) {
                           </div>
                         </div>
                 
-                    <a href="reservation.html" class="btn--primary">Réserver ma place</a>
+                    <a href="reservation.php" class="btn--primary">Réserver ma place</a>
                 </div> 
     
                 <div class="card">
@@ -269,7 +273,7 @@ if (!isset($_SESSION['user_id'])) {
                           </div>
                         </div>
                 
-                    <a href="reservation.html" class="btn--primary">Réserver ma place</a>
+                    <a href="reservation.php" class="btn--primary">Réserver ma place</a>
                 </div> 
             </div>
         </div>
