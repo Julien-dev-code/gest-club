@@ -1,6 +1,11 @@
 <?php
 session_start();
 
+if (isset($_SESSION['user_id'])) {
+    header('Location: accueil-connecte.php');
+    exit;
+}
+
 $erreurs = $_SESSION['erreurs'] ?? [];
 $anciennes_valeurs = $_SESSION['anciennes_valeurs'] ?? [];
 
