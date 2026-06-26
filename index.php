@@ -1,3 +1,8 @@
+<?php
+session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -15,25 +20,8 @@
     <script src="js/main.js"defer></script>
 </head>
 <body>
-  <header>
-    <nav class="navbar" id="nav">
-        <div class="navbar__top">
-          <span class="navbar__brand ">GEST<span>CLUB</span></span>  
-          <button id="burger-button-display">
-            <i class='bx  bx-menu'></i> 
-            <i class='bx  bx-x'></i> 
-          </button>
-        </div>
-        <div class="navbar__right">
-          
-            <ul class="navbar__links" id="nav-ul">
-                <li><a href="#">Fonctionnalités</a></li>
-                <li><a href="evenements.php">Événements</a></li>
-                <li><a href="connexion.php" class="navbar__cta btn--primary">Me connecter</a></li>
-            </ul>
-        </div>
-    </nav>
-  </header>
+  
+        <?php require_once 'includes/header.php'; ?>
     
   <main>
         
@@ -214,7 +202,7 @@
                 <p class="cta__description">Créez votre compte gratuitement et réservez votre première place en moins de 2 minutes.</p>
               </div>
               <div class="cta__btn">
-                <a href="connexion.php" class="btn--dark">Créer mon compte</a>
+                <a href="inscription.php" class="btn--dark">Créer mon compte</a>
               </div>
             </div>
           </section>

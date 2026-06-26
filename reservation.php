@@ -4,6 +4,9 @@ if (!isset($_SESSION['user_id'])) {
     header('Location: connexion.php');
     exit;
 }
+$retour_texte = "Retour aux événements";
+$retour_url = "evenements.php";
+
 ?>
 
 <!DOCTYPE html>
@@ -24,12 +27,10 @@ if (!isset($_SESSION['user_id'])) {
     <script src="js/pages/reservation.js"defer></script>
 </head>
 <body>
-    <header>
-        <div class="navbar">
-            <span class="navbar__brand">GEST<span>CLUB</span></span>
-            <a href="evenements.php" class="btn--ghost">Retour au événements</a>
-        </div>
-    </header>
+    
+<?php require_once 'includes/header-simple.php'; ?>
+
+
     <main>
         <div class="section__header">
             <p class="section__eyebrow">RÉSERVATION</p>

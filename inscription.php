@@ -6,6 +6,9 @@ if (isset($_SESSION['user_id'])) {
     exit;
 }
 
+$retour_texte = "Retour à l'accueil";
+$retour_url = "index.php";
+
 $erreurs = $_SESSION['erreurs'] ?? [];
 $anciennes_valeurs = $_SESSION['anciennes_valeurs'] ?? [];
 
@@ -28,12 +31,9 @@ unset($_SESSION['erreurs'], $_SESSION['anciennes_valeurs']);
     <script src="js/pages/inscription.js" defer></script>
 </head>
 <body>
-    <header>
-        <div class="navbar">
-            <span class="navbar__brand">GEST<span>CLUB</span></span>
-            <a href="index.php" class="btn--ghost">Retour a l'accueil</a>
-        </div>
-    </header>
+    
+    <?php require_once 'includes/header-simple.php'; ?>
+
     <main>
         <div class="hero">
             <img class="hero__image" src="assets/images/gabriele-fenili-7MF6_YwHJA8-unsplash.jpg" alt="">

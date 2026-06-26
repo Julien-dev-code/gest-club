@@ -27,35 +27,11 @@ if (!isset($_SESSION['user_id'])) {
     <script src="js/modals.js"defer></script>
 </head>
 <body>
-    <header>
-        <nav class="navbar" id="nav">
-            <div class="navbar__top">
-                <span class="navbar__brand ">GEST<span>CLUB</span></span>
-                <button id="burger-button-display">
-                    <i class='bx  bx-menu'></i> 
-                    <i class='bx  bx-x'></i> 
-                </button>
-            </div>
-                <div class="navbar__right">
-                    <ul class="navbar__links">
-                        <li><a href="evenements.php">Événements</a></li>
-                    </ul>
 
-                <form class="navbar__logout" action="traitements/traitement_deconnexion.php" method="POST">
-                    <button class="navbar__logout-btn" type="submit">Se déconnecter</button>
-                </form>
-                <div class="navbar__user">
-                    <span class="navbar__username">
-                        <?= htmlspecialchars(ucfirst(strtolower($_SESSION['prenom']))) . ' ' . htmlspecialchars(strtoupper(substr($_SESSION['nom'], 0, 1))) . '.' ?>
-                    </span>
-                    <span class="navbar__avatar">
-                        <?= htmlspecialchars(strtoupper(substr($_SESSION['prenom'], 0, 1))) . htmlspecialchars(strtoupper(substr($_SESSION['nom'], 0, 1))) ?>
-                    </span>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <main>
+        
+       
+        <?php require_once 'includes/header.php'; ?>
+    
         <div class="hero">
             <img class="hero__image" src="assets/images/gabriele-fenili-7MF6_YwHJA8-unsplash.jpg" alt="">
               

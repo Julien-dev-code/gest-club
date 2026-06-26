@@ -20,14 +20,13 @@ if (!isset($_SESSION['user_id'])) {
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script src="js/main.js"defer></script>
 </head>
 <body>
-    <header>
-        <div class="navbar">
-            <span class="navbar__brand">GEST<span>CLUB</span></span>
-            <a href="evenements.php" class="btn--ghost">Retour au événements</a>
-        </div>
-    </header>
+    
+
+        <?php require_once 'includes/header.php'; ?>
+
     <main>
         <div class="confirmation__header">
             <span class="badge--success">

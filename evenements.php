@@ -23,26 +23,11 @@ if (!isset($_SESSION['user_id'])) {
     <script src="js/main.js"defer></script>
 </head>
 <body>
-    <header>
-        <nav class="navbar" id="nav">
-            <div class="navbar__top">
-                <span class="navbar__brand ">GEST<span>CLUB</span></span>
-                <button id="burger-button-display">
-                    <i class='bx  bx-menu'></i> 
-                    <i class='bx  bx-x'></i> 
-                </button>
-            </div>
-            <div class="navbar__right">
-                <ul class="navbar__links">
-                    <li><a href="evenements.php">Événements</a></li>
-                </ul>
-                <div class="navbar__user">
-                    <span class="navbar__username">Julien D.</span>
-                    <span class="navbar__avatar">JD</span>
-                </div>
-            </div>
-        </nav>
-    </header>
+    
+
+        <?php require_once 'includes/header.php'; ?>
+
+
     <main>
         <div class="main__container"> 
             <div class="section__header">
