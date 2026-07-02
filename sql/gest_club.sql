@@ -20,11 +20,11 @@
 -- =============================================================================
 
 -- Création de la base si elle n'existe pas
-CREATE DATABASE IF NOT EXISTS gest_club
-  CHARACTER SET utf8mb4
-  COLLATE utf8mb4_unicode_ci;
+-- CREATE DATABASE IF NOT EXISTS gest_club
+  -- CHARACTER SET utf8mb4
+  -- COLLATE utf8mb4_unicode_ci;
 
-USE gest_club;
+-- USE gest_club;
 
 -- =============================================================================
 -- Suppression des tables existantes (ordre inverse des dépendances)
@@ -138,7 +138,7 @@ CREATE TABLE athlete (
 CREATE TABLE evenement (
   id                 BIGINT       NOT NULL AUTO_INCREMENT,
   nom                VARCHAR(100) NOT NULL,
-  statut             ENUM('programme', 'en_cours', 'termine', 'annule') NOT NULL DEFAULT 'programme',
+  statut             ENUM('actif', 'annule') NOT NULL DEFAULT 'actif',
   date_debut         DATETIME     NOT NULL,
   date_fin           DATETIME     NOT NULL,
   id_type_evenement  BIGINT       NOT NULL,
@@ -343,7 +343,7 @@ INSERT INTO tribune (nom) VALUES ('nord'), ('sud'), ('est'), ('ouest');
 INSERT INTO niveau (nom) VALUES ('haut'), ('milieu'), ('bas');
 
 -- Types d'événements de départ (modifiables ensuite via le CRUD du responsable)
-INSERT INTO type_evenement (nom) VALUES ('football'), ('basketball'), ('rugby'), ('handball');
+INSERT INTO type_evenement (nom) VALUES ('championnat'), ('coupe'), ('amical'), ('tournoi');
 
 -- =============================================================================
 -- FIN DU SCRIPT
