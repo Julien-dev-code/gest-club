@@ -318,7 +318,7 @@ header {
     color:var(--badge-error-color);
     font-family:var(--font-title);
     font-weight: 500;
-    font-size: 20px;
+    font-size: 18px;
     border: 1px solid var(--btn-danger-border);
     border-radius: var(--radius-sm);
     padding: 7px 20px;
@@ -561,7 +561,7 @@ header {
 }
 
 .btn--full {
-    padding: 10px 40px;
+    padding: 7px 40px;
 }
 
 /* ============================================================
