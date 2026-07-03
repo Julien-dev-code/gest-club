@@ -325,13 +325,14 @@ header {
     transition: all 0.2s ease;
 }
 
-.btn--danger:hover {
+.btn--danger:hover:not(:disabled) {
     background-color: rgba(220, 38, 38, 0.15);
     box-shadow: 0 4px 12px rgba(220, 38, 38, 0.25);
 }
 .btn--full {
     width: 100%;
 }
+
 
 /* ============================================================
    BADGES
