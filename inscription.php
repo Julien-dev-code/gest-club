@@ -1,4 +1,7 @@
 <?php
+
+require_once __DIR__ .'/includes/helpers.php';
+
 session_start();
 
 if (isset($_SESSION['user_id'])) {
@@ -9,10 +12,9 @@ if (isset($_SESSION['user_id'])) {
 $retour_texte = "Retour à l'accueil";
 $retour_url = "index.php";
 
-$erreurs = $_SESSION['erreurs'] ?? [];
 $anciennes_valeurs = $_SESSION['anciennes_valeurs'] ?? [];
 
-unset($_SESSION['erreurs'], $_SESSION['anciennes_valeurs']);
+unset($_SESSION['anciennes_valeurs']);
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +34,7 @@ unset($_SESSION['erreurs'], $_SESSION['anciennes_valeurs']);
 </head>
 <body>
     
-    <?php require_once 'includes/header-simple.php'; ?>
+    <?php require_once __DIR__ . '/includes/header-simple.php'; ?>
 
     <main>
         <div class="hero">
@@ -41,21 +43,16 @@ unset($_SESSION['erreurs'], $_SESSION['anciennes_valeurs']);
             <p class="hero__subtitle">Créez votre compte et réservez vos premières places en moins de 2 minutes.</p>
         </div>
         <div class="form__group">
+
+            <?php afficher_flashes(); ?>
+
             <div class="form__header">
                 <p class="form__eyebrow">Inscription</p>
                 <h2 class="form__title">Créer mon compte</h2>
                 <p class="form__subtitle">Déjà inscrit ? <a href="connexion.php">Se connecter</a></p>
             </div>
 
-            <?php if (!empty($erreurs)) : ?>
-                <div class="form__errors">
-                    <ul>
-                        <?php foreach ($erreurs as $erreur) : ?>
-                            <li><?= htmlspecialchars($erreur) ?></li>
-                        <?php endforeach; ?>
-                    </ul>
-                </div>
-            <?php endif; ?>
+
 
             <form action="traitements/traitement_inscription.php" method="POST" id="inscription-form" novalidate>
                 <div class="form__row">
@@ -94,8 +91,8 @@ unset($_SESSION['erreurs'], $_SESSION['anciennes_valeurs']);
                 </div>
 
                 <div class="form-group">
-                    <label class="form__check">
-                        <input type="checkbox" id="check" required>
+                    <label class="form__check" for="cgu">
+                        <input type="checkbox" id="cgu" name="cgu" required>
                         J'accepte les conditions d'utilisation
                     </label>
                 </div>

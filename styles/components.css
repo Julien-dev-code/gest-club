@@ -420,6 +420,7 @@ header {
     align-items: flex-start;
     gap: 10px;
     padding: 12px 16px;
+    margin-bottom: 8px;
     border-radius: var(--radius-sm);
     font-family: var(--font-title);
     font-size: 13px;
@@ -435,6 +436,20 @@ header {
     font-size: 16px;
     margin-top: 2px;
     flex-shrink: 0;
+}
+
+.alert--success {
+    background-color: var(--badge-success-bg);
+    color: var(--badge-success-color);
+    border: 1px solid var(--btn-success-border);
+   
+}
+
+.alert--error {
+    background-color: var(--badge-error-bg);
+    color: var(--badge-error-color);
+    border: 1px solid var(--btn-danger-border);
+    
 }
 
  /* ============================================================

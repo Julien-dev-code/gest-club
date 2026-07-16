@@ -26,3 +26,29 @@ function calculer_statut_affiche(array $evenement): string {
     return 'a_venir';
     
 }
+
+
+function ajouter_flash(string $type, string $message): void {
+    if ($type !== 'error' && $type !== 'success') {
+        throw new InvalidArgumentException("Type de flash invalide : $type");
+    }
+
+    $_SESSION['flash_' . $type][] = $message;
+}
+
+
+function afficher_flashes(): void {
+    if (!empty($_SESSION['flash_error'])) {
+        foreach($_SESSION['flash_error'] as $message) {
+            echo '<div class="alert alert--error">' . '<i class="bx bxs-x-circle"></i>' . htmlspecialchars($message, ENT_QUOTES, 'UTF-8') . '</div>';
+        }
+        unset($_SESSION['flash_error']);
+    }
+
+    if (!empty($_SESSION['flash_success'])) {
+        foreach($_SESSION['flash_success'] as $message)  {
+            echo '<div class="alert alert--success">' . '<i class="bx bxs-check-circle"></i>' . htmlspecialchars($message, ENT_QUOTES, 'UTF-8') . '</div>';
+        }
+        unset($_SESSION['flash_success']);
+    }
+}

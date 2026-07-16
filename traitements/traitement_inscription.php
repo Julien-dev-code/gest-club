@@ -1,8 +1,9 @@
 <?php
 
-session_start();
-
 require_once __DIR__ .'/../includes/db.php';
+require_once __DIR__ .'/../includes/helpers.php';
+
+session_start();
 
 if ($_SERVER['REQUEST_METHOD'] !=='POST') {
     header('Location: ../inscription.php');
@@ -19,7 +20,7 @@ $mot_de_passe_confirmation = $_POST['mot_de_passe_confirmation'] ?? '';
 $erreurs = [];
 
 if (empty($prenom)) {
-    $erreurs[] = "Le prenom est obligatoire";
+    $erreurs[] = "Le prénom est obligatoire";
 }
 
 if (empty($nom)) {
@@ -27,9 +28,9 @@ if (empty($nom)) {
 }
 
 if (empty($telephone)) {
-    $erreurs[] = "Le telephone est obligatoire";
+    $erreurs[] = "Le téléphone est obligatoire";
 }elseif (!preg_match('/^0[67](\s?\d{2}){4}$/', $telephone)) {
-    $erreurs[] = "Le telephone n'est pas valide";
+    $erreurs[] = "Le téléphone n'est pas valide";
 }
 
 if (empty($email)) {
@@ -61,8 +62,14 @@ if (empty($mot_de_passe_confirmation)) {
     $erreurs[] = "Les mot de passe ne sont pas identique";
 }
 
+if (!isset($_POST['cgu'])) {
+    $erreurs[] = "Vous devez accepter les conditions d'utilisation";
+}
+
 if (!empty($erreurs)) {
-    $_SESSION['erreurs'] = $erreurs;
+    foreach ($erreurs as $erreur) {
+        ajouter_flash('error', $erreur);
+    }
     
     $anciennes_valeurs = $_POST;
     unset($anciennes_valeurs['mot_de_passe']);
@@ -86,16 +93,16 @@ try {
         ':mot_de_passe' => $mot_de_passe_hash
     ]);
 
+    ajouter_flash('success', 'Inscription réussie, vous pouvez maintenant vous connecter.');
+
     header('Location: ../connexion.php');
     exit;
 } catch (PDOException $e) {
     if($e->errorInfo[1] === 1062) {
-        $erreurs[] = "Cet email est déjà utilisé.";
+        ajouter_flash('error', "Cet email est déjà utilisé.");
     } else {
-        $erreurs[] = "Une erreur technique est survenue.";
+        ajouter_flash('error', "Une erreur technique est survenue.");
     }
-
-    $_SESSION['erreurs'] = $erreurs;
 
     $anciennes_valeurs = $_POST;
     unset($anciennes_valeurs['mot_de_passe']);
