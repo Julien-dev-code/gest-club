@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__ .'/../includes/db.php';
+require_once __DIR__ .'/../includes/helpers.php';
 
 session_start();
 
@@ -14,14 +15,14 @@ $mot_de_passe = $_POST['mot_de_passe'] ?? '';
 
 
 if ($email === '' || $mot_de_passe === '') {
-    $_SESSION['erreur_connexion'] = 'Veuillez remplir tous les champs.';
+    ajouter_flash('error', 'Veuillez remplir tous les champs.');
     $_SESSION['anciennes_valeurs'] = ['email' => $email];
     header('Location: ../connexion.php');
     exit;
 }
 
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    $_SESSION['erreur_connexion'] = "Format d'email invalide.";
+    ajouter_flash('error', 'Format d\'email invalide.');
     $_SESSION['anciennes_valeurs'] = ['email' => $email];
     header('Location: ../connexion.php');
     exit;
@@ -45,14 +46,14 @@ try {
         header('Location: ../accueil-connecte.php');
         exit;
     } else {
-        $_SESSION['erreur_connexion'] = "Email ou mot de passe incorrect";
+        ajouter_flash('error', 'Email ou mot de passe incorrect.');
         $_SESSION['anciennes_valeurs'] = ['email' => $email];
 
         header('Location: ../connexion.php');
         exit;
     }
 } catch (PDOException $e) {
-    $_SESSION['erreur_connexion'] = "Une erreur est survenue. Veuillez réessayer.";
+    ajouter_flash('error', 'Une erreur est survenue, veuillez réessayer.');
     header('Location: ../connexion.php');
     exit;
 }

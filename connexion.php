@@ -1,4 +1,7 @@
 <?php
+
+require_once __DIR__ .'/includes/helpers.php';
+
 session_start();
 
 if (isset($_SESSION['user_id'])) {
@@ -23,11 +26,11 @@ $retour_url = "index.php";
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <script src="js/pages/connexion.js"defer></script>
+    <script src="js/pages/connexion.js" defer></script>
 </head>
 <body>
     
-<?php require_once 'includes/header-simple.php'; ?>
+<?php require_once __DIR__ . '/includes/header-simple.php'; ?>
 
     <main>
         <div class="hero">
@@ -36,19 +39,15 @@ $retour_url = "index.php";
             <p class="hero__subtitle">Réservez vos places, retrouvez vos amis dans les tribunes et vivez chaque match comme jamais...</p>
         </div>
         <div class="form__group">
+
+        <?php afficher_flashes(); ?>
+
             <div class="form__header">
                 <p class="form__eyebrow">Connexion</p>
                 <h2 class="form__title">Bon retour</h2>
                 <p class="form__subtitle">Pas encore de compte ? <a href="inscription.php">Créer un compte</a></p>
             </div>
-            <form action="traitements/traitement_connexion.php" method="POST" id="connexion-form" novalidate>
-
-            <?php if (isset($_SESSION['erreur_connexion'])) : ?>
-                <p class="form__error"><?= htmlspecialchars($_SESSION['erreur_connexion']) ?></p>
-                <?php unset($_SESSION['erreur_connexion']); ?>
-            <?php endif; ?>
-
-            
+            <form action="traitements/traitement_connexion.php" method="POST" id="connexion-form" novalidate>  
 
                 <div class="form-group">
                     <label class="form__label" for="email">Adresse email</label>
