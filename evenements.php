@@ -1,14 +1,15 @@
 <?php
-session_start();
-if (!isset($_SESSION['user_id'])) {
-    header('Location: connexion.php');
-    exit;
-}
 
 require_once __DIR__ .'/includes/db.php';
 require_once __DIR__ .'/includes/helpers.php';
 
+session_start();
 
+
+if (!isset($_SESSION['user_id'])) {
+    header('Location: connexion.php');
+    exit;
+}
 
 $sql = "SELECT 
     evenement.id,

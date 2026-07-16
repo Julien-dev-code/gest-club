@@ -1,9 +1,22 @@
 <?php
+
+require_once __DIR__ .'/includes/db.php';
+require_once __DIR__ .'/includes/helpers.php';
+
 session_start();
+
 if (!isset($_SESSION['user_id'])) {
     header('Location: connexion.php');
     exit;
 }
+
+
+
+$id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+if ($id === false || $id === null || $id < 1) {
+    
+}
+
 $retour_texte = "Retour aux événements";
 $retour_url = "evenements.php";
 
