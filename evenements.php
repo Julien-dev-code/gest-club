@@ -71,6 +71,9 @@ $formatteur = new IntlDateFormatter(
 
     <main>
         <div class="main__container"> 
+
+        <?php afficher_flashes(); ?>
+
             <div class="section__header">
                 <p class="section__eyebrow">CALENDRIER</p>
                 <h2 class="section__title">Événements à venir</h2>

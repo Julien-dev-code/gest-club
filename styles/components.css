@@ -420,8 +420,7 @@ header {
     align-items: flex-start;
     gap: 10px;
     padding: 12px 16px;
-    margin-top: 8px;
-    margin-bottom: 8px;
+    margin: 10px;
     border-radius: var(--radius-sm);
     font-family: var(--font-title);
     font-size: 13px;
