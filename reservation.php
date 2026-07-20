@@ -114,6 +114,17 @@
         exit;
         }
 
+
+    $formatteur = new IntlDateFormatter(
+        'fr_FR',
+        IntlDateFormatter::FULL,
+        IntlDateFormatter::SHORT,
+    );
+
+    $dateFormatee = $formatteur->format($dateEvenement);
+
+
+
     ?>
 
     <!DOCTYPE html>
@@ -142,7 +153,9 @@
             <div class="section__header">
                 <p class="section__eyebrow">RÉSERVATION</p>
                 <h1 class="section__title">Choisissez votre place</h1>
-                <p class="section__subtitle">Finale du championnat — Samedi 15 mars 2026 à 20h00</p>
+                <p class="section__subtitle">
+                    <?= htmlspecialchars($resultat['nom'])?> - <?= htmlspecialchars(ucfirst($dateFormatee)) ?>
+                </p>
             </div>
             <div class="main__container">
                 <div class="alert alert--info">
@@ -233,8 +246,8 @@
                 
                 <div class="section__header">
                     <p class="section__eyebrow">CONFIRMATION</p>
-                    <h2 class="section__title">Finale du championnat</h2>
-                    <p class="section__subtitle">Samedi 15 mars 2026 à 20H00</p>
+                    <h2 class="section__title"><?= htmlspecialchars($resultat['nom'])?> </h2>
+                    <p class="section__subtitle"><?= htmlspecialchars(ucfirst($dateFormatee))?></p>
                 </div>
                 <div class="ticket__details">
                     <p class="ticket__detail-label">Tribune</p>
@@ -254,7 +267,9 @@
                 </div>
                 <div class="ticket__details">
                     <p class="ticket__detail-label">Réservé par </p>
-                    <p class="ticket__detail-value  ticket__detail-value--primary">Julien D.</p>
+                    <p class="ticket__detail-value  ticket__detail-value--primary"> 
+                        <?= htmlspecialchars(ucfirst(strtolower($_SESSION['prenom']))) . ' ' . htmlspecialchars(strtoupper(substr($_SESSION['nom'], 0, 1))) . '.' ?>
+                    </p>
                 </div>
                 <div class="ticket__detail-footer">
                     <button type="submit" class="btn--primary">Confirmer la réservation</button>
