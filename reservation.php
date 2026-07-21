@@ -107,6 +107,22 @@
             header('Location: ' . $retour_url);
             exit;
         }
+
+        $sql_tribune = "SELECT
+            t.id,
+            t.nom,
+            COUNT(r.id) AS places_reservees
+        FROM tribune t
+        LEFT JOIN place p ON p.id_tribune = t.id
+        LEFT JOIN reservation_place rp ON rp.id_place = p.id
+        LEFT JOIN reservation r ON rp.id_reservation = r.id AND r.id_evenement = :id
+        GROUP BY t.id, t.nom";
+
+        $requete_tribune = $pdo->prepare($sql_tribune);
+        $requete_tribune->execute(['id' => $id]);
+        $tribunes = $requete_tribune->fetchAll(PDO::FETCH_ASSOC);
+
+
         
     } catch (PDOException $e){
         ajouter_flash('error', "Une erreur technique est survenue.");
@@ -174,34 +190,19 @@
                         Choisissez votre tribune
                     </h2>
                     <div class="tribune-grid">
-                        <button type="button" class="tribune-option tribune-option--selected">
-                            <div>
-                                <iconify-icon icon="noto-v1:stadium"></iconify-icon>
-                                <span class="tribune-option__name">Nord</span>
-                            </div>
-                            <span class="tribune-option__places">38 places dispo</span>
-                        </button>
-                        <button type="button" class="tribune-option">
-                            <div>
-                                <iconify-icon icon="noto-v1:stadium"></iconify-icon>
-                                <span class="tribune-option__name">Sud</span>
-                            </div>
-                            <span class="tribune-option__places">52 places dispo</span>
-                        </button>
-                        <button type="button" class="tribune-option">
-                            <div>
-                                <iconify-icon icon="noto-v1:stadium"></iconify-icon>
-                                <span class="tribune-option__name">Est</span>
-                            </div>
-                            <span class="tribune-option__places">24 places dispo</span>
-                        </button>
-                        <button type="button" class="tribune-option">
-                            <div>
-                                <iconify-icon icon="noto-v1:stadium"></iconify-icon>
-                                <span class="tribune-option__name">Ouest</span>
-                            </div>
-                            <span class="tribune-option__places">28 places dispo</span>
-                        </button>
+                        <?php foreach ($tribunes as $tribune):
+                            $places_dispo = CAPACITE_PAR_TRIBUNE - (int) $tribune['places_reservees'];
+                        ?>
+
+                            <button type="button" class="tribune-option">
+                                <div>
+                                    <iconify-icon icon="noto-v1:stadium"></iconify-icon>
+                                    <span class="tribune-option__name"><?= htmlspecialchars($tribune['nom']) ?></span>
+                                </div>
+                                <span class="tribune-option__places"><?= $places_dispo ?> places dispo</span>
+                            </button>
+
+                        <?php endforeach; ?>
                     </div>
                 </div>
 

@@ -3,6 +3,7 @@
 // je definie la constante avec la capacite du stade
 // elle ne bouge pas
 const CAPACITE_STADE = 1200;
+const CAPACITE_PAR_TRIBUNE = 300;
 
 
 function calculer_statut_affiche(array $evenement): string {
