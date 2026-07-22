@@ -63,4 +63,76 @@ if (!in_array($niveau, $niveaux_valides, true)) {
 }
 
 
+try {
+    // === Check #1 : événement existe ===
+    $sql = "SELECT id, statut, date_debut 
+            FROM evenement 
+            WHERE id = :id";
 
+    $requete = $pdo->prepare($sql);
+    $requete->execute(['id' => $id_evenement]);
+    $evenement = $requete->fetch(PDO::FETCH_ASSOC);
+
+    if (!$evenement) {
+        ajouter_flash('error', "Événement introuvable.");
+        header('Location: ' . $retour_url);
+        exit;
+    }
+    // === Check #2 : statut annulé ===
+    if ($evenement['statut'] === 'annule') {
+        ajouter_flash('error', "Événement annulé.");
+        header('Location: ' . $retour_url);
+        exit;
+    }
+    // === Check #3 : date passée ===
+    $dateEvenement = new DateTime($evenement['date_debut']);
+    $maintenant = new DateTime();
+
+    if ($dateEvenement < $maintenant) {
+        ajouter_flash('error', "Cet événement a déjà commencé.");
+        header('Location: ' . $retour_url);
+        exit;
+    }
+
+    // === Check #4 : places dispo (COUNT global) ===
+    $sql_places = "SELECT COUNT(*) 
+                FROM reservation_place rp
+                JOIN reservation r ON rp.id_reservation = r.id
+                WHERE r.id_evenement = :id";
+
+
+    $requete_places = $pdo->prepare($sql_places);
+    $requete_places->execute(['id' => $id_evenement]);
+    $total_places_reservees = (int) $requete_places->fetchColumn();
+
+    if ($total_places_reservees >= CAPACITE_STADE) {
+        ajouter_flash('error', "Cet événement est complet.");
+        header('Location: ' . $retour_url);
+        exit;
+    }
+
+    // === Check #5 : quota utilisateur (COUNT + AND user) ===
+    $sql_quota = "SELECT COUNT(*) 
+                    FROM reservation_place rp
+                    JOIN reservation r ON rp.id_reservation = r.id
+                    WHERE r.id_evenement = :id_evenement
+                    AND r.id_utilisateur = :id_utilisateur";
+
+    $requete_quota = $pdo->prepare($sql_quota);
+    $requete_quota->execute([
+        'id_evenement' => $id_evenement,
+        'id_utilisateur' => $_SESSION['user_id']
+    ]);
+    $places_deja_reservees = (int) $requete_quota->fetchColumn();
+
+    if ($places_deja_reservees + $nombre_places > 2) {
+        ajouter_flash('error', "Vous ne pouvez pas réserver plus de 2 places pour cet événement.");
+        header('Location: ' . $retour_url);
+        exit;
+    }
+
+} catch (PDOException $e){
+        ajouter_flash('error', "Une erreur technique est survenue.");
+        header('Location: ' . $retour_url);
+        exit;
+        }
