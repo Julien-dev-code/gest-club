@@ -7,6 +7,9 @@ document.querySelectorAll(".tribune-option").forEach((button) => {
         })
             
         button.classList.add("tribune-option--selected")
+
+        const tribuneName = button.querySelector('.tribune-option__name').textContent.trim();
+        document.getElementById('tribune-input').value = tribuneName;
         
     })
     
@@ -21,6 +24,8 @@ document.querySelectorAll(".niveau-option").forEach((button) => {
         })
             
         button.classList.add("niveau-option--selected")
+
+        document.getElementById('niveau-input').value = button.textContent.trim();
     })
     
 })
@@ -32,6 +37,8 @@ const value = document.querySelector(".places-counter__value")
 plus.addEventListener("click",() => {
     if (parseInt(value.textContent) < 2) {
         value.textContent = parseInt(value.textContent) + 1;
+        document.getElementById('nombre-input').value = value.textContent;
+
     };
 
 });
@@ -39,5 +46,6 @@ plus.addEventListener("click",() => {
 minus.addEventListener("click",() => {
     if(parseInt(value.textContent) > 1) {
         value.textContent = parseInt(value.textContent) - 1;
+        document.getElementById('nombre-input').value = value.textContent;
     };
 })
