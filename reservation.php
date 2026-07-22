@@ -183,7 +183,13 @@
                 </div>
             </div>
 
-            <form action="" method="post" class="reservation__form">  
+            <form action="traitements/traitement_reservation.php" method="post" class="reservation__form" id="reservation-form">
+                
+                <input type="hidden" name="id_evenement" value="<?= (int) $id ?>">
+                <input type="hidden" name="tribune" id="tribune-input" value="">
+                <input type="hidden" name="niveau" id="niveau-input" value="Haut">
+                <input type="hidden" name="nombre_places" id="nombre-input" value="1">
+
                 <div class="reservation__step">
                     <h2 class="reservation__step-title">
                         <span class="reservation__step-number">1.</span> 
@@ -273,7 +279,7 @@
                     </p>
                 </div>
                 <div class="ticket__detail-footer">
-                    <button type="submit" class="btn--primary">Confirmer la réservation</button>
+                    <button type="submit" form="reservation-form" class="btn--primary">Confirmer la réservation</button>
                     <span>Un QR code vous sera généré après confirmation</span>
                 </div>
             </div>
