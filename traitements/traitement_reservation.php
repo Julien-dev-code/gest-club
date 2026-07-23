@@ -18,6 +18,8 @@ if ($_SERVER['REQUEST_METHOD'] !=='POST') {
     exit;
 }
 
+$id_utilisateur = $_SESSION['user_id'];
+
 $retour_url = "../evenements.php";
 
 $tribunes_valides = ['nord', 'sud', 'est', 'ouest'];
@@ -131,8 +133,75 @@ try {
         exit;
     }
 
+    // === Check #6 : places dispo dans tribune/niveau choisis ===
+    $sql_places_dispo = "SELECT p.id
+                        FROM place p
+                        JOIN tribune t ON p.id_tribune = t.id
+                        JOIN niveau n ON p.id_niveau = n.id
+                        WHERE t.nom = :tribune
+                        AND n.nom = :niveau
+                        AND p.id NOT IN (
+                        SELECT rp.id_place
+                        FROM reservation_place rp
+                        JOIN reservation r ON rp.id_reservation = r.id
+                        WHERE r.id_evenement = :id_evenement
+                        )
+                        LIMIT " . (int)$nombre_places;
+
+
+    $requete_places_dispo = $pdo->prepare($sql_places_dispo);
+    $requete_places_dispo->execute([
+        'tribune' => $tribune,
+        'niveau' => $niveau,
+        'id_evenement' => $id_evenement,
+    ]);
+    $places_dispos = $requete_places_dispo->fetchAll(PDO::FETCH_COLUMN);
+
+    if (count($places_dispos) < $nombre_places) {
+    ajouter_flash('error', "Il ne reste plus assez de places pour cet événement.");
+    header('Location: ' . $retour_url);
+    exit;
+}
+
+    $pdo->beginTransaction();
+
+    $sql_insert_reservation = "INSERT INTO reservation (id_utilisateur, id_evenement) 
+                               VALUES (:id_utilisateur, :id_evenement)";
+
+    $requete_insert_reservation = $pdo->prepare($sql_insert_reservation);
+    $requete_insert_reservation->execute([
+        'id_utilisateur' => $id_utilisateur,
+        'id_evenement' => $id_evenement,
+    ]);
+
+    $id_reservation = $pdo->lastInsertId();
+
+    $sql_insert_place = "INSERT INTO reservation_place (id_reservation, id_place, qr_code)
+                         VALUES (:id_reservation, :id_place, :qr_code)";
+
+    $requete_insert_place = $pdo->prepare($sql_insert_place);
+
+    foreach ($places_dispos as $id_place) {
+        $qr_code = bin2hex(random_bytes(16));
+        $requete_insert_place->execute([
+            'id_reservation' => $id_reservation,
+            'id_place' => $id_place,
+            'qr_code' => $qr_code,
+        ]);
+    }
+
+    $pdo->commit();
+
+    header('Location: ../qrcode.php?id=' . $id_reservation);
+    exit;
+
+
 } catch (PDOException $e){
+        if ($pdo->inTransaction()) {
+            $pdo->rollBack();
+        }
         ajouter_flash('error', "Une erreur technique est survenue.");
         header('Location: ' . $retour_url);
         exit;
-        }
+    
+}

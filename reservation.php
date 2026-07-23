@@ -91,7 +91,7 @@
 
         $sql_quota = "SELECT COUNT(*) 
                     FROM reservation_place rp
-                    JOIN reservation r ON rp.id_reservation = r.id
+                     JOIN reservation r ON rp.id_reservation = r.id
                     WHERE r.id_evenement = :id_evenement
                     AND r.id_utilisateur = :id_utilisateur";
 
