@@ -49,3 +49,18 @@ minus.addEventListener("click",() => {
         document.getElementById('nombre-input').value = value.textContent;
     };
 })
+
+function remplirModaleConfirmation() {
+   const tribune = document.getElementById('tribune-input').value;
+   const niveau = document.getElementById('niveau-input').value;
+   const nombre = Number(document.getElementById('nombre-input').value);
+   const texte_place = nombre + (nombre > 1 ? " places" : " place");
+
+    document.getElementById("modal-tribune").textContent = tribune.charAt(0).toUpperCase() + tribune.slice(1);
+    document.getElementById("modal-niveau").textContent = niveau;
+    document.getElementById("modal-places").textContent = texte_place;
+}
+
+document.querySelector('.btn--confirm').addEventListener('click', () => {
+    remplirModaleConfirmation();
+});

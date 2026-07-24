@@ -28,8 +28,7 @@ $niveaux_valides = ['Haut', 'Milieu', 'Bas'];
 $id_evenement = filter_input(INPUT_POST, 'id_evenement', FILTER_VALIDATE_INT, [
         'options' => ['min_range' => 1]
     ]);
-
-   
+    
 $nombre_places = filter_input(INPUT_POST, 'nombre_places', FILTER_VALIDATE_INT, [
         'options' => ['min_range' => 1,'max_range' => 2]
     ]);

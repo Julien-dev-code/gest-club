@@ -258,15 +258,15 @@
                 </div>
                 <div class="ticket__details">
                     <p class="ticket__detail-label">Tribune</p>
-                    <p class="ticket__detail-value ticket__detail-value--accent">Nord</p>
+                    <p class="ticket__detail-value ticket__detail-value--accent" id="modal-tribune">Nord</p>
                 </div>
                 <div class="ticket__details">
                     <p class="ticket__detail-label">Niveaux</p>
-                    <p class="ticket__detail-value  ticket__detail-value--accent">Haut</p>
+                    <p class="ticket__detail-value  ticket__detail-value--accent" id="modal-niveau">Haut</p>
                 </div>
                 <div class="ticket__details">
                     <p class="ticket__detail-label">Nombre de places</p>
-                    <p class="ticket__detail-value  ticket__detail-value--primary">1 place</p>
+                    <p class="ticket__detail-value  ticket__detail-value--primary" id="modal-places">1 place</p>
                 </div>
                 <div class="ticket__details">
                     <p class="ticket__detail-label">Numéro de siege</p>
