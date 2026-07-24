@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+require_once __DIR__ .'/includes/helpers.php';
+
 if (!isset($_SESSION['user_id'])) {
     header('Location: connexion.php');
     exit;
@@ -42,7 +44,12 @@ if (!isset($_SESSION['user_id'])) {
             </div>
         </div>
 
+       
+
         <div class="main__container"> 
+
+             <?php afficher_flashes(); ?>
+
             <div class="section__header">
                 <p class="section__eyebrow">MES BILLETS</p>
                 <h2 class="section__title">Mes réservations</h2>
