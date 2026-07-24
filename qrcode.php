@@ -1,11 +1,68 @@
 <?php
 
+require_once __DIR__ .'/includes/db.php';
+require_once __DIR__ .'/includes/helpers.php';
+
 session_start();
 
 if (!isset($_SESSION['user_id'])) {
     header('Location: connexion.php');
     exit;
 }
+
+ $retour_url = "evenements.php";
+
+$id_reservation = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT, [
+        'options' => ['min_range' => 1]
+]);
+
+if ($id_reservation === false || $id_reservation === null) {
+    ajouter_flash('error', "Reservation introuvable.");
+    header('Location: accueil-connecte.php');
+    exit;
+}
+
+$sql_reservation = "SELECT r.id, r.date_reservation,
+                           e.nom AS evenement_nom,
+                           e.date_debut,
+                           e.statut
+                    FROM reservation r
+                    INNER JOIN evenement e ON r.id_evenement = e.id
+                    WHERE r.id = :id_reservation
+                    AND r.id_utilisateur = :id_utilisateur";
+
+$requete_reservation = $pdo->prepare($sql_reservation);
+$requete_reservation->execute([
+    'id_reservation' => $id_reservation,
+    'id_utilisateur' => $_SESSION['user_id']
+]);
+
+$reservation = $requete_reservation->fetch(PDO::FETCH_ASSOC);
+
+if (!$reservation) {
+    ajouter_flash('error', "Réservation introuvable.");
+    header('Location: accueil-connecte.php');
+    exit;
+}
+
+
+$sql_places = "SELECT rp.qr_code,
+                      p.numero,
+                      t.nom AS tribune_nom,
+                      n.nom AS niveau_nom
+               FROM reservation_place rp
+               INNER JOIN place p ON rp.id_place = p.id
+               INNER JOIN tribune t ON p.id_tribune = t.id
+               INNER JOIN niveau n ON p.id_niveau = n.id
+               WHERE rp.id_reservation = :id_reservation";
+
+$requete_places = $pdo->prepare($sql_places);
+$requete_places->execute([
+    'id_reservation' => $id_reservation
+]);
+
+$places = $requete_places->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
 <!DOCTYPE html>
