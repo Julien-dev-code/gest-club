@@ -1,5 +1,9 @@
 <?php
 
+use Endroid\QrCode\Builder\Builder;
+use Endroid\QrCode\Writer\PngWriter;
+
+require_once __DIR__ . '/vendor/autoload.php';
 require_once __DIR__ .'/includes/db.php';
 require_once __DIR__ .'/includes/helpers.php';
 
@@ -9,8 +13,6 @@ if (!isset($_SESSION['user_id'])) {
     header('Location: connexion.php');
     exit;
 }
-
- $retour_url = "evenements.php";
 
 $id_reservation = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT, [
         'options' => ['min_range' => 1]
@@ -63,6 +65,32 @@ $requete_places->execute([
 
 $places = $requete_places->fetchAll(PDO::FETCH_ASSOC);
 
+
+foreach ($places as &$place) {
+    $resultat_qr = Builder::create()
+        ->writer(new PngWriter())
+        ->data($place['qr_code'])
+        ->size(300)
+        ->margin(10)
+        ->build();
+
+    $place['qr_data_uri'] = $resultat_qr->getDataUri();
+}
+unset($place); 
+
+
+$formatteur_date = new IntlDateFormatter(
+    'fr_FR',
+    IntlDateFormatter::FULL,
+    IntlDateFormatter::SHORT,
+    'Europe/Paris'
+);
+
+$date_evenement_formatee = $formatteur_date->format(
+    new DateTime($reservation['date_debut'])
+);
+
+
 ?>
 
 <!DOCTYPE html>
@@ -97,10 +125,12 @@ $places = $requete_places->fetchAll(PDO::FETCH_ASSOC);
             </p>
         </div>
 
+    <?php foreach ($places as $place): ?>
         <div class="ticket">
             <div class="ticket__qr">
-                <img src="assets/images/qrcode.png" alt="QR Code de réservation">
-                <p class="ticket__qr-number">N° RES-2025-00847</p>
+                <img src="<?= $place['qr_data_uri'] ?>" 
+                     alt="QR Code du billet - Place n°<?= htmlspecialchars($place['numero']) ?>">
+                <p class="ticket__qr-number">N° RES-<?= htmlspecialchars($reservation['id']) ?></p>
                 <p class="ticket__qr-label">DÉTAILS DE LA RÉSERVATION</p>
             </div>
 
@@ -110,17 +140,19 @@ $places = $requete_places->fetchAll(PDO::FETCH_ASSOC);
                         <iconify-icon icon="noto-v1:stadium"></iconify-icon>
                         <p class="ticket__detail-label">Événement</p>
                     </div>
-                    <p class="ticket__detail-value">FC Metz - PSG</p>
+                    <p class="ticket__detail-value">
+                        <?= htmlspecialchars($reservation['evenement_nom']) ?>
+                    </p>
                 </div>
-            
-
             
                 <div class="ticket__detail-row">
                     <div class="ticket__detail-row-label">
                         <iconify-icon icon="flat-color-icons:calendar"></iconify-icon>
                         <p class="ticket__detail-label">Date</p>
                     </div>
-                    <p class="ticket__detail-value">Sam. 14 juin 2025 · 20h45</p>
+                    <p class="ticket__detail-value">
+                       <?= htmlspecialchars($date_evenement_formatee) ?>
+                    </p>
                 </div>
             
 
@@ -129,17 +161,22 @@ $places = $requete_places->fetchAll(PDO::FETCH_ASSOC);
                         <iconify-icon icon="fluent-color:location-ripple-24"></iconify-icon>
                         <p class="ticket__detail-label">Tribune - Niveau</p>
                     </div>
-                    <p class="ticket__detail-value">Tribune Nord · Niveau 2</p>
+                    <p class="ticket__detail-value">
+                        Tribune <?= htmlspecialchars(ucfirst($place['tribune_nom'])) ?>
+                        Niveau <?= htmlspecialchars(ucfirst($place['niveau_nom'])) ?>
+                    </p>
                 </div>
-           
+            
 
            
                 <div class="ticket__detail-row">
                     <div class="ticket__detail-row-label">
                         <iconify-icon icon="noto-v1:seat"></iconify-icon>
-                        <p class="ticket__detail-label">Places réservées</p>
+                        <p class="ticket__detail-label">Place réservée</p>
                     </div>
-                    <span class="badge--seat">N°12-N°13</span>
+                    <span class="badge--seat">
+                         N°<?= htmlspecialchars($place['numero']) ?>
+                    </span>
                 </div>
 
             </div>
@@ -149,6 +186,7 @@ $places = $requete_places->fetchAll(PDO::FETCH_ASSOC);
                 <span>Ce QR code est unique et personnel. Il sera scanné une seule fois à l'entrée par l'agent d'accueil.</span>
             </div>
         </div>
+    <?php endforeach; ?>
     </main>
 </body>
 </html>
