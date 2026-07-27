@@ -125,68 +125,75 @@ $date_evenement_formatee = $formatteur_date->format(
             </p>
         </div>
 
-    <?php foreach ($places as $place): ?>
-        <div class="ticket">
-            <div class="ticket__qr">
-                <img src="<?= $place['qr_data_uri'] ?>" 
-                     alt="QR Code du billet - Place n°<?= htmlspecialchars($place['numero']) ?>">
-                <p class="ticket__qr-number">N° RES-<?= htmlspecialchars($reservation['id']) ?></p>
-                <p class="ticket__qr-label">DÉTAILS DE LA RÉSERVATION</p>
-            </div>
-
-            <div class="ticket__details">
-                <div class="ticket__detail-row">
-                    <div class="ticket__detail-row-label">
-                        <iconify-icon icon="noto-v1:stadium"></iconify-icon>
-                        <p class="ticket__detail-label">Événement</p>
-                    </div>
-                    <p class="ticket__detail-value">
-                        <?= htmlspecialchars($reservation['evenement_nom']) ?>
-                    </p>
+        <div class="ticket-grid">
+        <?php foreach ($places as $place): ?>
+        
+            <div class="ticket">
+                <div class="ticket__qr">
+                    <img src="<?= $place['qr_data_uri'] ?>" 
+                        alt="QR Code du billet - Place n°<?= htmlspecialchars($place['numero']) ?>">
+                    <p class="ticket__qr-number">N° RES-<?= htmlspecialchars($reservation['id']) ?></p>
+                    <p class="ticket__qr-label">DÉTAILS DE LA RÉSERVATION</p>
                 </div>
+
+                <div class="ticket__details">
+                    <div class="ticket__detail-row">
+                        <div class="ticket__detail-row-label">
+                            <iconify-icon icon="noto-v1:stadium"></iconify-icon>
+                            <p class="ticket__detail-label">Événement</p>
+                        </div>
+                        <p class="ticket__detail-value">
+                            <?= htmlspecialchars($reservation['evenement_nom']) ?>
+                        </p>
+                    </div>
+                
+                    <div class="ticket__detail-row">
+                        <div class="ticket__detail-row-label">
+                            <iconify-icon icon="flat-color-icons:calendar"></iconify-icon>
+                            <p class="ticket__detail-label">Date</p>
+                        </div>
+                        <p class="ticket__detail-value">
+                        <?= htmlspecialchars($date_evenement_formatee) ?>
+                        </p>
+                    </div>
+                
+
+                    <div class="ticket__detail-row">
+                        <div class="ticket__detail-row-label">
+                            <iconify-icon icon="fluent-color:location-ripple-24"></iconify-icon>
+                            <p class="ticket__detail-label">Tribune - Niveau</p>
+                        </div>
+                        <p class="ticket__detail-value">
+                            Tribune <?= htmlspecialchars(ucfirst($place['tribune_nom'])) ?> /
+                            Niveau <?= htmlspecialchars(ucfirst($place['niveau_nom'])) ?>
+                        </p>
+                    </div>
+                
+
             
-                <div class="ticket__detail-row">
-                    <div class="ticket__detail-row-label">
-                        <iconify-icon icon="flat-color-icons:calendar"></iconify-icon>
-                        <p class="ticket__detail-label">Date</p>
+                    <div class="ticket__detail-row">
+                        <div class="ticket__detail-row-label">
+                            <iconify-icon icon="noto-v1:seat"></iconify-icon>
+                            <p class="ticket__detail-label">Place réservée</p>
+                        </div>
+                        <span class="badge--seat">
+                            N°<?= htmlspecialchars($place['numero']) ?>
+                        </span>
                     </div>
-                    <p class="ticket__detail-value">
-                       <?= htmlspecialchars($date_evenement_formatee) ?>
-                    </p>
-                </div>
-            
 
-                <div class="ticket__detail-row">
-                    <div class="ticket__detail-row-label">
-                        <iconify-icon icon="fluent-color:location-ripple-24"></iconify-icon>
-                        <p class="ticket__detail-label">Tribune - Niveau</p>
-                    </div>
-                    <p class="ticket__detail-value">
-                        Tribune <?= htmlspecialchars(ucfirst($place['tribune_nom'])) ?>
-                        Niveau <?= htmlspecialchars(ucfirst($place['niveau_nom'])) ?>
-                    </p>
                 </div>
-            
-
-           
-                <div class="ticket__detail-row">
-                    <div class="ticket__detail-row-label">
-                        <iconify-icon icon="noto-v1:seat"></iconify-icon>
-                        <p class="ticket__detail-label">Place réservée</p>
-                    </div>
-                    <span class="badge--seat">
-                         N°<?= htmlspecialchars($place['numero']) ?>
-                    </span>
+                <div class="ticket__detail-footer">
+                    <button class="btn--primary">Télécharger mon billet</button>
+                    <span>Ce QR code est unique et personnel. Il sera scanné une seule fois à l'entrée par l'agent d'accueil.</span>
                 </div>
-
             </div>
-            <div class="ticket__detail-footer">
-                <button class="btn--primary">Télécharger mon billet</button>
-                <a href="evenements.php" class="btn--ghost">Retour aux événements</a>
-                <span>Ce QR code est unique et personnel. Il sera scanné une seule fois à l'entrée par l'agent d'accueil.</span>
-            </div>
+             <?php endforeach; ?>
         </div>
-    <?php endforeach; ?>
+
+        <div class="page-actions">
+            <a href="evenements.php" class="btn--ghost">Retour aux événements</a>
+        </div>
+       
     </main>
 </body>
 </html>

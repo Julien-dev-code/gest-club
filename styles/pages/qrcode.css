@@ -173,11 +173,26 @@
         padding-bottom: 0;
     }
     main {
-        max-width: 500px;
         margin: 0 auto;
         padding: 40px 20px;
     }
+    .confirmation__header {
+        max-width: 500px;
+        margin: 0 auto;
+    }
     .confirmation__header-title {
         font-size: 32px;
+    }
+    .ticket-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 24px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .page-actions {
+        max-width: 500px;
+        margin: 30px auto 0;
+        text-align: center;
     }
 }
