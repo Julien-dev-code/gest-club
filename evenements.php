@@ -76,7 +76,7 @@ $formatteur = new IntlDateFormatter(
 
             <div class="section__header">
                 <p class="section__eyebrow">CALENDRIER</p>
-                <h2 class="section__title">Événements à venir</h2>
+                <h2 class="section__title">Calendrier des événements</h2>
                 <p class="section__subtitle">Réservez vos places avant qu'il ne soit trop tard</p>
             </div>
         
@@ -128,17 +128,19 @@ $formatteur = new IntlDateFormatter(
                             <span class="card__stat-value card__stat-value--dark"><?= CAPACITE_STADE ?> </span>
                         </div>
                 
+                        <?php if ($statut_affiche === 'a_venir' || $statut_affiche === 'complet') : ?>
                         <div class="card__stat">
                             <p class="card__stat-label">Compte à rebours</p>
-                            <span class="card__stat-value">J-<?= ($difference->days) ?></span>
+                            <span class="card__stat-value">J-<?= $difference->days ?></span>
                         </div>
+                        <?php endif; ?>
                     </div>
                     
                     <?php if ($statut_affiche === 'a_venir') : ?>
-                        <a href="reservation.php" class="btn--primary">Réserver ma place</a>
+                        <a href="reservation.php?id=<?= $evenement['id'] ?>" class="btn--primary">Réserver ma place</a>
 
                     <?php elseif ($statut_affiche === 'en_cours') : ?>
-                        <a href="reservation.php" class="btn--primary">Réserver ma place</a>
+                        <a href="reservation.php?id=<?= $evenement['id'] ?>" class="btn--primary">Réserver ma place</a>
 
                     <?php elseif ($statut_affiche === 'complet') : ?>
                         <button class="btn--danger btn--disabled" disabled>Complet</button>
