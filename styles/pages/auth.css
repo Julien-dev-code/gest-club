@@ -145,5 +145,15 @@ li {
             color: var(--text-elevated);
             font-family: var(--font-body);
           }
-    
+
+        .form__hint {
+        color: var(--text-secondary);
+        font-size: 0.875rem;
+        }
+
+        .form__hint ul {
+        list-style: none;
+        margin-top: 4px;
+        }
+            
 }
