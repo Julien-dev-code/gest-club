@@ -16,11 +16,11 @@ const regExEmail = /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const criterias = {
     "length": {
         "regEx": /.{8,}/,        
-        "label": "8 caratctéres minimum"
+        "label": "8 caractères minimum"
     },
     "special": {
         "regEx": /[#@!?$%&]+/,   
-        "label": "Au moins 1 caractère spéciale"
+        "label": "Au moins 1 caractère spécial"
     },
     "uppercase": {
         "regEx": /[A-Z]+/,       
@@ -28,13 +28,14 @@ const criterias = {
     },
     "numeric": {
         "regEx": /[0-9]+/,       
-        "label": "Au moins 1 caractère numerique"
+        "label": "Au moins 1 caractère numérique"
     }
 };
 
-const div = document.createElement("div");
+    const div = document.createElement("div");
+    div.className = "form__hint";
     const p = document.createElement("p");
-    const text = document.createTextNode("Merci de respecter les critéres suivants :");
+    const text = document.createTextNode("Merci de respecter les critères suivants :");
     p.append(text);
     div.append(p);
 
