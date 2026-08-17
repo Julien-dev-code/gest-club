@@ -5,14 +5,11 @@ require_once __DIR__ .'/../includes/helpers.php';
 
 session_start();
 
-
-// Garde 1 : Authentification
 if (!isset($_SESSION['user_id'])) {
     header('Location: ../connexion.php');
     exit;
 }
 
-// Garde 2 : Méthode HTTP
 if ($_SERVER['REQUEST_METHOD'] !=='POST') {
     header('Location: ../evenements.php');
     exit;
