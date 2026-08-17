@@ -15,7 +15,7 @@ function calculer_statut_affiche(array $evenement): string {
         return 'termine';
     }
 
-    if ($evenement['places_prises'] === CAPACITE_STADE) {
+    if ($evenement['places_prises'] >= CAPACITE_STADE) {
         return 'complet';
     }
 
