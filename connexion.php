@@ -65,7 +65,7 @@ $retour_url = "index.php";
                 <div class="form__footer">
                     <a href="#">Mot de passe oublié ?</a>
                     <button class="btn--primary" type="submit" >Se Connecter</button>
-                    <p>Pas encore de inscrit? <a href="inscription.php">Créer mon compte gratuitement</a></p>
+                    <p>Pas encore inscrit? <a href="inscription.php">Créer mon compte gratuitement</a></p>
                 </div>
             </form>
         </div>
