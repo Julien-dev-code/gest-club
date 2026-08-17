@@ -82,8 +82,7 @@ unset($place);
 $formatteur_date = new IntlDateFormatter(
     'fr_FR',
     IntlDateFormatter::FULL,
-    IntlDateFormatter::SHORT,
-    'Europe/Paris'
+    IntlDateFormatter::SHORT
 );
 
 $date_evenement_formatee = $formatteur_date->format(
