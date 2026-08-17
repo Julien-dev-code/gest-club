@@ -77,13 +77,6 @@
         gap: 32px;
     }
     
-    .navbar__right {
-        width: auto;
-        flex-direction: row;
-        align-items: center;
-        gap: 25px;
-        padding-bottom: 0;
-    }
     .main__container {
         max-width: 1200px;
         margin: 40px auto 0;
@@ -105,7 +98,6 @@
         margin-bottom: 30px;
     }
     
-   
 }
 @media (max-width: 990px) {
     .navbar__user {
