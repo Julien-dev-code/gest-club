@@ -173,6 +173,7 @@
         padding-bottom: 0;
     }
     main {
+        max-width: 1200px;
         margin: 0 auto;
         padding: 40px 20px;
     }
@@ -185,10 +186,12 @@
     }
     .ticket-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        grid-template-columns: repeat(auto-fit, 500px);
+
         gap: 24px;
         max-width: 1200px;
         margin: 0 auto;
+        justify-content: center;
     }
     .page-actions {
         max-width: 500px;
