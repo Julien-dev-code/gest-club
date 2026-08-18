@@ -355,7 +355,8 @@ header {
     padding: 4px 12px;
  }
 
- .badge--upcoming {
+ .badge--upcoming,
+ .badge--error {
     background-color: var(--badge-upcoming-bg);
     color:var(--color-section-title);
     font-family:var(--font-body);
@@ -364,6 +365,7 @@ header {
     border: 1px solid var(--badge-upcoming-border);
     border-radius: var(--radius-lg);
     padding: 4px 12px;
+    gap: 10px;
  }
 
  .badge--finished {

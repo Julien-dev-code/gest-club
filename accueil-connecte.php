@@ -105,6 +105,7 @@ $formatteur = new IntlDateFormatter(
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <script src="js/main.js"defer></script>
+    <script src="js/modals.js" defer></script>
 </head>
 <body>
 
@@ -204,11 +205,69 @@ $formatteur = new IntlDateFormatter(
 
                         <div class="card__actions">
                             <a href="qrcode.php?id=<?= $reservation['id'] ?>" class="btn--success btn--full">Voir mon billet</a>
-                            <button class="btn--danger">
-                                <i class='bx bx-trash'></i>
-                            </button>
+
+                            <?php if ($statut_billet === 'a_venir') : ?>
+                                <button type="button"
+                                        class="btn--danger btn--delete"
+                                        aria-label="Annuler cette réservation">
+                                    <i class='bx bx-trash'></i>
+                                </button>
+                            <?php else : ?>
+                                <button type="button"
+                                        class="btn--danger btn--disabled"
+                                        disabled
+                                        aria-label="Annulation impossible">
+                                    <i class='bx bx-trash'></i>
+                                </button>
+                            <?php endif; ?>
                         </div>
                     </div>
+
+                    <?php if ($statut_billet === 'a_venir') : ?>
+                    <div class="modal-wrapper">
+                        <div class="modal-wrapper__content">
+                            <button class="modal-button-close" type="button" aria-label="Fermer">
+                                <i class='bx bx-x'></i>
+                            </button>
+
+                            <div class="confirmation__header" tabindex="-1">
+                                <span class="badge--error">
+                                    <i class="bx bxs-error-circle"></i>Action irréversible
+                                </span>
+                                <h2 class="confirmation__header-title">Annuler la réservation ?</h2>
+                                <p class="confirmation__header-subtitle">
+                                    Vos places seront remises à disposition et vos billets définitivement supprimés.
+                                </p>
+                            </div>
+
+                            <div class="suppression__recap">
+                                <p class="suppression__recap-title"><?= htmlspecialchars($reservation['nom_evenement']) ?></p>
+                                <p class="suppression__recap-date"><?= ucfirst($formatteur->format(new DateTime($reservation['date_debut']))) ?></p>
+
+                                <div class="suppression__recap-stats">
+                                    <div class="card__stat">
+                                        <p class="card__stat-label">Tribune</p>
+                                        <span class="card__stat-value"><?= ucfirst(htmlspecialchars($reservation['nom_tribune'])) ?></span>
+                                    </div>
+                                    <div class="card__stat">
+                                        <p class="card__stat-label">Niveau</p>
+                                        <span class="card__stat-value card__stat-value--dark"><?= ucfirst(htmlspecialchars($reservation['nom_niveau'])) ?></span>
+                                    </div>
+                                    <div class="card__stat">
+                                        <p class="card__stat-label">Places</p>
+                                        <span class="card__stat-value card__stat-value--dark">N°<?= htmlspecialchars($reservation['numeros_places']) ?></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <form action="traitements/traitement_suppression_reservation.php" method="POST" class="suppression__form">
+                                <input type="hidden" name="id_reservation" value="<?= $reservation['id'] ?>">
+                                <button type="submit" class="btn--danger btn--full">Oui, annuler ma réservation</button>
+                                <button type="button" class="btn--ghost btn--annuler">Non, conserver mon billet</button>
+                            </form>
+                        </div>
+                    </div>
+                    <?php endif; ?>
 
                     <?php endforeach; ?>
                 </div>
