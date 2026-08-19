@@ -1,5 +1,45 @@
 <?php
+
+require_once __DIR__ . '/includes/db.php';
+require_once __DIR__ .'/includes/helpers.php';
+
 session_start();
+
+$sql_evenements = "SELECT
+    evenement.id,
+    evenement.nom AS nom_evenement,
+    evenement.statut,
+    evenement.date_debut,
+    evenement.date_fin,
+    (SELECT COUNT(*)
+     FROM reservation_place
+     JOIN reservation ON reservation_place.id_reservation = reservation.id
+     WHERE reservation.id_evenement = evenement.id
+    ) AS places_prises
+FROM evenement
+WHERE evenement.statut <> 'annule'
+  AND evenement.date_fin > NOW()
+ORDER BY evenement.date_debut ASC
+LIMIT 3";
+
+try {
+    $requete_evenements = $pdo->prepare($sql_evenements);
+    $requete_evenements->execute();
+    $evenements = $requete_evenements->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    error_log($e->getMessage());
+    $evenements = [];
+}
+
+$formatteur = new IntlDateFormatter(
+    'fr_FR',
+    IntlDateFormatter::NONE,
+    IntlDateFormatter::NONE,
+    null,
+    null,
+    "EEEE d MMMM y — HH'h'mm"
+);
+
 ?>
 
 
@@ -31,7 +71,7 @@ session_start();
             <div class="hero__content">
               <h1 class="hero__title">L'arène<br><span class="hero__title--accent">vous attend.</span></h1>
               <p class="hero__subtitle">Réservez vos places, retrouvez vos amis dans les tribunes et vivez chaque match comme jamais...</p>
-              <a href="evenements.php" class="btn--primary">Voir les événements</a>
+              <a href="inscription.php" class="btn--primary">Créer mon compte</a>
             </div>
         </div>
 
@@ -43,87 +83,61 @@ session_start();
           </div>
 
           <div class="events">
-            <div class="card">
-                <span class="badge--upcoming">
-                  <i class="bx bxs-circle"></i>A venir
-                </span>
-                    <h3 class="card__title">TOURNOI RÉGIONAL</h3>
-                    <p class="card__date">Dim. 28 mars 2026 — 14h00</p>
-                  
-                    <div class="card__stats">
-                      <div class="card__stat">
-                        <p class="card__stat-label">Places dispo</p>
-                        <span class="card__stat-value">480</span>
-                      </div>
-            
-                      <div class="card__stat">
-                        <p class="card__stat-label">Capacité</p>
-                        <span class="card__stat-value card__stat-value--dark">2000</span>
-                      </div>
-            
-                      <div class="card__stat">
-                        <p class="card__stat-label">Compte à rebours</p>
-                        <span class="card__stat-value">J-25</span>
-                      </div>
-                    </div>
-            
-                  <a href="reservation.php" class="btn--primary">Réserver ma place</a>
-            </div> 
+            <?php foreach ($evenements as $evenement) :
+
+              $statut_affiche = calculer_statut_affiche($evenement);
+
+              $aujourdhui = new DateTime();
+              $date_evenement = new DateTime($evenement['date_debut']);
+              $difference = $aujourdhui->diff($date_evenement);
+            ?>
 
             <div class="card">
-                <span class="badge--upcoming">
-                  <i class="bx bxs-circle"></i>A venir
-                </span>
-                    <h3 class="card__title">FINALE DU CHAMPIONNAT</h3>
-                    <p class="card__date">Samedi 15 mars 2026 — 20h00</p>
-                  
-                    <div class="card__stats">
-                      <div class="card__stat">
-                        <p class="card__stat-label">Places dispo</p>
-                        <span class="card__stat-value">142</span>
-                      </div>
-            
-                      <div class="card__stat">
-                        <p class="card__stat-label">Capacité</p>
-                        <span class="card__stat-value card__stat-value--dark">2000</span>
-                      </div>
-            
-                      <div class="card__stat">
-                        <p class="card__stat-label">Compte à rebours</p>
-                        <span class="card__stat-value">J-25</span>
-                      </div>
-                    </div>
-            
-              <a href="reservation.php" class="btn--primary">Réserver ma place</a>
-            </div> 
+              <?php if ($statut_affiche === 'en_cours') : ?>
+                  <span class="badge--active">
+                      <i class="bx bxs-circle"></i>En cours
+                  </span>
+              <?php elseif ($statut_affiche === 'complet') : ?>
+                  <span class="badge--full">
+                      <i class="bx bxs-circle"></i>Complet
+                  </span>
+              <?php else : ?>
+                  <span class="badge--upcoming">
+                      <i class="bx bxs-circle"></i>A venir
+                  </span>
+              <?php endif; ?>
 
-            <div class="card">
-                <span class="badge--upcoming">
-                  <i class="bx bxs-circle"></i>A venir
-                </span>
-                    <h3 class="card__title">TOURNOI RÉGIONAL</h3>
-                    <p class="card__date">Dim. 28 mars 2026 — 14h00</p>
-                  
-                    <div class="card__stats">
-                      <div class="card__stat">
-                        <p class="card__stat-label">Places dispo</p>
-                        <span class="card__stat-value">480</span>
-                      </div>
-            
-                      <div class="card__stat">
-                        <p class="card__stat-label">Capacité</p>
-                        <span class="card__stat-value card__stat-value--dark">2000</span>
-                      </div>
-            
-                      <div class="card__stat">
-                        <p class="card__stat-label">Compte à rebours</p>
-                        <span class="card__stat-value">J-25</span>
-                      </div>
-                    </div>
-            
-              <a href="reservation.php" class="btn--primary">Réserver ma place</a>
-            </div> 
-          </div>
+              <h3 class="card__title"><?= htmlspecialchars($evenement['nom_evenement']) ?></h3>
+              <p class="card__date"><?= ucfirst($formatteur->format(new DateTime($evenement['date_debut']))) ?></p>
+
+              <div class="card__stats">
+                <div class="card__stat">
+                  <p class="card__stat-label">Places dispo</p>
+                  <span class="card__stat-value"><?= CAPACITE_STADE - $evenement['places_prises'] ?></span>
+                </div>
+
+                <div class="card__stat">
+                  <p class="card__stat-label">Capacité</p>
+                  <span class="card__stat-value card__stat-value--dark"><?= CAPACITE_STADE ?></span>
+                </div>
+
+                <?php if ($statut_affiche === 'a_venir' || $statut_affiche === 'complet') : ?>
+                <div class="card__stat">
+                  <p class="card__stat-label">Compte à rebours</p>
+                  <span class="card__stat-value">J-<?= $difference->days ?></span>
+                </div>
+                <?php endif; ?>
+            </div>
+
+            <?php if ($statut_affiche === 'complet') : ?>
+                <button class="btn--danger btn--disabled" disabled>Complet</button>
+            <?php else : ?>
+                <a href="connexion.php" class="btn--primary">Réserver ma place</a>
+            <?php endif; ?>
+        </div>
+
+        <?php endforeach; ?>
+      </div>
 
             <div class="section__header">
                 <p class="section__eyebrow">FONCTIONNALITÉS</p>
